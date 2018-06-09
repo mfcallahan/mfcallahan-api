@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mfcallahan-dev.com", "mfcallahan-dev.com\mfcallahan-dev.com.csproj", "{337615EF-5B48-4DD2-BF96-D9D4DBB2A50A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomepageDev.Web", "HomepageDev.Web\HomepageDev.Web.csproj", "{337615EF-5B48-4DD2-BF96-D9D4DBB2A50A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomepageDev.Data", "HomepageDev.Data\HomepageDev.Data.csproj", "{19FCA9A5-7330-4A89-9A83-B8E557E09450}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{337615EF-5B48-4DD2-BF96-D9D4DBB2A50A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{337615EF-5B48-4DD2-BF96-D9D4DBB2A50A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{337615EF-5B48-4DD2-BF96-D9D4DBB2A50A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19FCA9A5-7330-4A89-9A83-B8E557E09450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19FCA9A5-7330-4A89-9A83-B8E557E09450}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19FCA9A5-7330-4A89-9A83-B8E557E09450}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19FCA9A5-7330-4A89-9A83-B8E557E09450}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
