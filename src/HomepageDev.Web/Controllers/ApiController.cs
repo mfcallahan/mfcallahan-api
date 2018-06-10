@@ -6,7 +6,6 @@ using System.Web.Http;
 using HomepageDev.Data;
 using HomepageDev.Data.POCOs;
 using HomepageDev.Data.APIs;
-using System.Net;
 
 namespace HomepageDev.Web.Controllers
 {
@@ -64,9 +63,9 @@ namespace HomepageDev.Web.Controllers
         /// <param name="country">The input city, ex: USA</param>
         [HttpGet]
         [Route("api/Geocode")]
-        public InputAddress Geocode(string address = "", string city = "", string stateProv = "", string postalCode = "", string country = "")
+        public InputAdr Geocode(string address = "", string city = "", string stateProv = "", string postalCode = "", string country = "")
         {
-            InputAddress inputAdr = new InputAddress(address, city, stateProv, postalCode, country);
+            InputAdr inputAdr = new InputAdr(address, city, stateProv, postalCode, country);
 
             BingGeocoder bing = new BingGeocoder();
             bing.GeocodeAddress(inputAdr);

@@ -44,8 +44,8 @@
     <Compile Include="ESRI\Features.cs" />
     <Compile Include="POCOs\Esri.cs" />
     <Compile Include="POCOs\GmrsRepeater.cs" />
-    <Compile Include="POCOs\InputAddress.cs" />
-    <Compile Include="POCOs\OutputAddress.cs" />
+    <Compile Include="POCOs\InputAdr.cs" />
+    <Compile Include="POCOs\OutputAdr.cs" />
     <Compile Include="POCOs\BusinessCard.cs" />
     <Compile Include="POCOs\HelloResponse.cs" />
     <Compile Include="POCOs\IpLocation.cs" />

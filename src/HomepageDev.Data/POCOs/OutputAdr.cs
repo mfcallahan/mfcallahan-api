@@ -1,6 +1,6 @@
 ﻿namespace HomepageDev.Data.POCOs
 {
-    public class OutputAddress
+    public class OutputAdr
     {
         public string Address { get; set; }
         public string City { get; set; }
