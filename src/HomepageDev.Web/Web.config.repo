@@ -9,22 +9,22 @@
     <add key="gmrsLayerUrl" value="http://www.arcgis.com/sharing/rest/content/items/179ef9f9a1804859b0b548d970e44c07/data" />
     <add key="campingLayerUrl" value="" />
     <!-- Bing -->
-    <add key="bingKey" value="**********************************************************" />
-    <add key="bingUrl" value="https://dev.virtualearth.net/REST/v1/Locations" />
+    <add key="bingKey" value="" />
+    <add key="bingUrl" value="" />
     <!-- API: GetDeveloperInfo() -->
-    <add key="devInfoName" value="Matthew Callahan" />
-    <add key="devInfoTitle" value="Software Developer" />
-    <add key="devInfoAddress" value="Phoenix, AZ" />
-    <add key="devInfoPhone" value="480-389-4207" />
-    <add key="devInfoEmail" value="matthew.callahan@outlook.com" />
-    <add key="callSignHam" value="K7MFC" />
-    <add key="callSignGmrs" value="WRAA720" />
-    <add key="devInfoResumeUrl" value="http://mfcallahan.com/Content/docs/Matthew_Callahan_resume.pdf" />
-    <add key="devInfoLinkedInUrl" value="https://www.linkedin.com/in/mfcallahan1/" />
-    <add key="devInfoGitHubUrl" value="https://github.com/mfcallahan/" />
-    <add key="devInfoGeoNetUrl" value="https://community.esri.com/people/c_sharp_dotnet" />
-    <add key="leafletCdnCss" value="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
-    <add key="leafletCdnJs" value="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" />
+    <add key="devInfoName" value="" />
+    <add key="devInfoTitle" value="" />
+    <add key="devInfoAddress" value="" />
+    <add key="devInfoPhone" value="" />
+    <add key="devInfoEmail" value="" />
+    <add key="callSignHam" value="" />
+    <add key="callSignGmrs" value="" />
+    <add key="devInfoResumeUrl" value="" />
+    <add key="devInfoLinkedInUrl" value="" />
+    <add key="devInfoGitHubUrl" value="" />
+    <add key="devInfoGeoNetUrl" value="" />
+    <add key="leafletCdnCss" value="" />
+    <add key="leafletCdnJs" value="" />
     <add key="webpages:Version" value="3.0.0.0" />
     <add key="webpages:Enabled" value="false" />
     <add key="ClientValidationEnabled" value="true" />
@@ -40,7 +40,7 @@
   -->
   <system.web>
     <compilation debug="true" targetFramework="4.7.1" />
-    <httpRuntime targetFramework="4.5.2" />
+    <httpRuntime targetFramework="4.7.1" />
     <customErrors mode="Off" />
   </system.web>
   <runtime>
