@@ -45,7 +45,23 @@ namespace HomepageDev.Data.APIs
             if (!string.IsNullOrEmpty(inputAdr.Country))
                 request.AddParameter("countryRegion", inputAdr.Country);
 
-            var response = Client.Execute(request);
+            IRestResponse response = null;
+
+            try
+            {
+                response = Client.Execute(request);
+            }
+            catch (Exception ex)
+            {
+                inputAdr.Status = "BingGeocoder.GeocodeAddress() error: " + ex;
+                return;
+            }
+
+            if (!response.IsSuccessful)
+            {
+                inputAdr.Status = "BingGeocoder.GeocodeAddress() error: response.IsSuccessful = " + response.IsSuccessful + "; response.StatusDescription = " + response.StatusDescription;
+                return;
+            }
 
             BingGeocodeOutput output = JsonConvert.DeserializeObject<BingGeocodeOutput>(response.Content);
 
@@ -64,6 +80,8 @@ namespace HomepageDev.Data.APIs
                     Source = "Bing"
                 });
             }
+
+            inputAdr.Status = "OK";
         }
     }
 

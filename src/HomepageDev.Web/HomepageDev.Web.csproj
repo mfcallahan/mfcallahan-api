@@ -186,6 +186,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Web.config.repo" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -248,13 +249,6 @@
     <Content Include="Views\Gmrs\Index.cshtml" />
     <Content Include="Views\Home\Camping.cshtml" />
     <None Include="Views\web.config.publish" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.config.publish" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
