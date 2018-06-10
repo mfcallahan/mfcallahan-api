@@ -41,6 +41,9 @@
   <ItemGroup>
     <Compile Include="APIs\BingGeocoder.cs" />
     <Compile Include="APIs\IpApi.cs" />
+    <Compile Include="ESRI\Features.cs" />
+    <Compile Include="POCOs\Esri.cs" />
+    <Compile Include="POCOs\GmrsRepeater.cs" />
     <Compile Include="POCOs\InputAddress.cs" />
     <Compile Include="POCOs\OutputAddress.cs" />
     <Compile Include="POCOs\BusinessCard.cs" />

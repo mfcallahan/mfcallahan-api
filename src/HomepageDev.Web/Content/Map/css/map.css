@@ -1,1 +1,59 @@
-﻿
+﻿/*WeatherMap*/
+#map {
+    height: 90vh;
+}
+
+#map_root {
+    position: absolute !important;
+}
+
+/*Camping*/
+.camping-map {
+    height: 90vh;
+    width: 100%;
+}
+
+#homeButton {
+    position: relative;
+    top: 85px;
+    left: 21px;
+    z-index: 50;
+}
+
+.h3 {
+    margin-top: 10px !important;
+    color: red !important;
+}
+
+.map-wrapper {
+    background: #696969;
+}
+
+    .map-wrapper .map-title {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .map-wrapper .map-about {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .map-wrapper .layer-controls {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+
+
+.layer-control-wrapper {
+    background: #696969;
+    padding: 30px;
+}
+
+.sidebar-wrapper .profile-container {
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #fff;
+}

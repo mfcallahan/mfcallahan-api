@@ -11,14 +11,14 @@ namespace HomepageDev.Data.APIs
     {
         readonly string BingKey;
         readonly string BingUrl;
-        RestClient Client;
+        readonly RestClient Client;
 
         public BingGeocoder()
         {
             BingKey = ConfigurationManager.AppSettings["bingKey"];
             BingUrl = ConfigurationManager.AppSettings["bingUrl"];
 
-            CheckLimit();
+            //CheckLimit();
 
             Client = new RestClient(BingUrl);
             Client.AddDefaultParameter("key", BingKey);

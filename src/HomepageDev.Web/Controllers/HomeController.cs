@@ -9,8 +9,14 @@ namespace HomepageDev.Web.Controllers
             return View();
         }
 
-        // mfcallahan-dev.com/adot
+        [Route("ADOT")]
         public ActionResult ADOT()
+        {
+            return View();
+        }
+
+        [Route("camping")]
+        public ActionResult Camping()
         {
             return View();
         }

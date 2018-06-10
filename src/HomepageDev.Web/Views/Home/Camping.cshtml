@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Camping";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/style-map")
+@*@Scripts.Render("~/bundles/scripts-map")*@
+
+
+@*<!-- ArcGIS Online -->*@
+<div class="container-fluid">
+    <div class="row equal">
+        <div class="col-sm-12 no-padding">
+            @*<!-- web app (AZCamping) -->*@
+            <iframe class="camping-map" style="height: 90vh" src='http://www.arcgis.com/apps/View/index.html?appid=925f2fff6a224a5f9404c84155104962&extent=-123.9481,28.8271,-95.8231,39.5733' frameborder='0' scrolling='no'></iframe>
+
+            @*<!-- web map (AZCamping) -->*@
+            @*<iframe style="height: 90vh" title="Camping Map" src="//www.arcgis.com/apps/Embed/index.html?webmap=61d4fd22fb484c73992434a1dc87012d&amp;extent=-119.0187,30.5056,-102.7919,38.1173&amp;home=true&amp;zoom=true&amp;previewImage=false&amp;scale=true&amp;search=true&amp;searchextent=true&amp;legendlayers=true&amp;basemap_gallery=true&amp;disable_scroll=true&amp;theme=dark"></iframe>*@
+        </div>
+    </div>
+</div>
+
+<footer>
+    <h5 class="pull-left"><a href="mailto: matthew.callahan@outlook.com?subject=Requesting camping map access">request access</a></h5>
+    <h5 class="pull-right"><a href="https://www.arcgis.com/home/webmap/viewer.html?webmap=61d4fd22fb484c73992434a1dc87012d" target="_blank" rel="noopener">edit this map</a></h5>
+</footer>

@@ -119,9 +119,9 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Gmrs\mapGmrs.js" />
     <Content Include="Content\Home\css\site.css" />
     <Content Include="Content\Home\img\ratsnest.jpg" />
-    <Content Include="Content\Home\js\site.js" />
     <Content Include="Content\Map\css\map.css" />
     <Content Include="Content\Map\js\map.js" />
     <Content Include="favicon.ico" />
@@ -188,7 +188,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
@@ -220,6 +219,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\ApiController.cs" />
+    <Compile Include="Controllers\GmrsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -245,6 +245,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Map\Index.cshtml" />
     <Content Include="Views\Home\ADOT.cshtml" />
+    <Content Include="Views\Gmrs\Index.cshtml" />
+    <Content Include="Views\Home\Camping.cshtml" />
     <None Include="Views\web.config.publish" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -260,7 +262,9 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\Map\img\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HomepageDev.Data\HomepageDev.Data.csproj">
       <Project>{19fca9a5-7330-4a89-9a83-b8e557e09450}</Project>
