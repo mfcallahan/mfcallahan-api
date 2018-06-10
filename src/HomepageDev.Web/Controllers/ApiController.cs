@@ -5,6 +5,8 @@ using System.Threading;
 using System.Web.Http;
 using HomepageDev.Data;
 using HomepageDev.Data.POCOs;
+using HomepageDev.Data.APIs;
+using System.Net;
 
 namespace HomepageDev.Web.Controllers
 {
@@ -60,20 +62,17 @@ namespace HomepageDev.Web.Controllers
         /// <param name="stateProv">The input city, ex: Wisconsin</param>
         /// <param name="postalCode">The input city, ex: 53703</param>
         /// <param name="country">The input city, ex: USA</param>
-        //[HttpGet]
-        //[Route("api/Geocode")]
-        //public HttpResponseMessage Geocode(string address = "", string city = "", string stateProv = "", string postalCode = "", string country = "")
-        //{
-        //    ApiInputAddress inputAdr = new ApiInputAddress(address, city, stateProv, postalCode, country);
+        [HttpGet]
+        [Route("api/Geocode")]
+        public InputAddress Geocode(string address = "", string city = "", string stateProv = "", string postalCode = "", string country = "")
+        {
+            InputAddress inputAdr = new InputAddress(address, city, stateProv, postalCode, country);
 
-        //    Bing bing = new Bing();
-        //    bing.GeocodeAddress(inputAdr);
+            BingGeocoder bing = new BingGeocoder();
+            bing.GeocodeAddress(inputAdr);
 
-        //    HttpResponseMessage httpResponseMsg = Request.CreateResponse(HttpStatusCode.OK);
-        //    httpResponseMsg.Content = SerializeApiResponse(inputAdr);
-
-        //    return httpResponseMsg;
-        //}
+            return inputAdr;
+        }
 
         /// <summary>
         /// Returns information about an IP address
