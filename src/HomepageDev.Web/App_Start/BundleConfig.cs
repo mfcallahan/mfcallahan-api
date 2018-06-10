@@ -21,11 +21,6 @@ namespace HomepageDev.Web
                 "~/Scripts/bootstrap.min.js",
                 "~/Content/Home/js/site.js"));
 
-            // jQuery
-            bundles.Add(new StyleBundle("~/bundles/css-site").Include(
-                "~/Content/bootstrap.min.css",
-                "~/Content/Home/css/site.css"));
-
             // ADOT scripts          
             bundles.Add(new ScriptBundle("~/bundles/js-adot").Include(
                 "~/Content/ADOT/js/adot.js"));
