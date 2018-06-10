@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Map";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/bundles/css-leaflet")
+@Styles.Render("~/bundles/css-map")
+
+@Scripts.Render("~/bundles/js-leaflet")
+@Scripts.Render("~/bundles/js-map")
+
+<div class="container-fluid">
+    <div class="row equal">
+        <div class="col-sm-12 no-padding">
+            <div id="mapDiv" style="height: 93vh"></div>
+        </div>
+    </div>
+</div>
+
