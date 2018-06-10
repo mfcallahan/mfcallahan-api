@@ -2,16 +2,16 @@
 
 namespace HomepageDev.Data.POCOs
 {
-    public class ApiInputAddress
+    public class InputAddress
     {
-        public ApiInputAddress(string address, string city, string stateProv, string postalCode, string country)
+        public InputAddress(string address, string city, string stateProv, string postalCode, string country)
         {
             Address = address;
             City = city;
             StateProv = stateProv;
             PostalCode = postalCode;
             Country = country;
-            OutputAddresses = new List<ApiOutputAddress>();
+            OutputAddresses = new List<OutputAddress>();
         }
 
         public string Address { get; set; }
@@ -19,6 +19,6 @@ namespace HomepageDev.Data.POCOs
         public string StateProv { get; set; }
         public string PostalCode { get; set; }
         public string Country { get; set; }
-        public IList<ApiOutputAddress> OutputAddresses { get; set; }
+        public IList<OutputAddress> OutputAddresses { get; set; }
     }
 }

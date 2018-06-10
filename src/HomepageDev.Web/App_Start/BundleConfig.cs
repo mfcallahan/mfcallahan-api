@@ -26,18 +26,22 @@ namespace HomepageDev.Web
                 "~/Content/bootstrap.min.css",
                 "~/Content/Home/css/site.css"));
 
-            // Map scripts          
-            bundles.Add(new StyleBundle("~/bundles/css-map").Include(
-                "~/Content/Map/css/map.css"));
+            // ADOT scripts          
+            bundles.Add(new ScriptBundle("~/bundles/js-adot").Include(
+                "~/Content/ADOT/js/adot.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/js-map").Include(
-                "~/Content/Map/js/map.js"));
+            // Map scripts          
+            //bundles.Add(new StyleBundle("~/bundles/css-map").Include(
+            //    "~/Content/Map/css/map.css"));
+
+            //bundles.Add(new ScriptBundle("~/bundles/js-map").Include(
+            //    "~/Content/Map/js/map.js"));
 
             // leaflet.js
-            bundles.Add(new StyleBundle("~/bundles/css-leaflet", "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css").Include(
-                "~/Content/Map/css/leaflet.css"));
-            bundles.Add(new ScriptBundle("~/bundles/js-leaflet", "https://unpkg.com/leaflet@1.3.1/dist/leaflet.js").Include(
-                "~/Content/Map/js/leaflet.js"));
+            //bundles.Add(new StyleBundle("~/bundles/css-leaflet", "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css").Include(
+            //    "~/Content/Map/css/leaflet.css"));
+            //bundles.Add(new ScriptBundle("~/bundles/js-leaflet", "https://unpkg.com/leaflet@1.3.1/dist/leaflet.js").Include(
+            //    "~/Content/Map/js/leaflet.js"));
         }
     }
 }

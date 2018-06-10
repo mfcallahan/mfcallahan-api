@@ -1,18 +1,19 @@
 ﻿using HomepageDev.Data.POCOs;
 using Newtonsoft.Json;
 using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 
 namespace HomepageDev.Data.APIs
 {
-    public class Bing
+    public class BingGeocoder
     {
         readonly string BingKey;
         readonly string BingUrl;
         RestClient Client;
 
-        public Bing()
+        public BingGeocoder()
         {
             BingKey = ConfigurationManager.AppSettings["bingKey"];
             BingUrl = ConfigurationManager.AppSettings["bingUrl"];
@@ -25,10 +26,10 @@ namespace HomepageDev.Data.APIs
 
         bool CheckLimit()
         {
-            return true;
+            throw new NotImplementedException();
         }
 
-        public void GeocodeAddress(ApiInputAddress inputAdr)
+        public void GeocodeAddress(InputAddress inputAdr)
         {
             RestRequest request = new RestRequest(Method.GET);
             request.AddParameter("key", BingKey);
@@ -50,18 +51,18 @@ namespace HomepageDev.Data.APIs
 
             foreach (var r in output.resourceSets[0].resources)
             {
-                ApiOutputAddress o = new ApiOutputAddress();
-                o.OutputAddress = r.address.addressLine;
-                o.OutputCity = r.address.locality;
-                o.OutputStateProv = r.address.adminDistrict;
-                o.OutputPostalCode = r.address.postalCode;
-                o.OutputCountry = r.address.countryRegion;
-                o.Confidence = r.confidence;
-                o.Longitude = r.geocodePoints[0].coordinates[0];
-                o.Latitude = r.geocodePoints[0].coordinates[1];
-                o.Source = "Bing";
-
-                inputAdr.OutputAddresses.Add(o);
+                inputAdr.OutputAddresses.Add(new OutputAddress()
+                {
+                    Address = r.address.addressLine,
+                    City = r.address.locality,
+                    StateProv = r.address.adminDistrict,
+                    PostalCode = r.address.postalCode,
+                    Country = r.address.countryRegion,
+                    Confidence = r.confidence,
+                    Longitude = r.geocodePoints[0].coordinates[0],
+                    Latitude = r.geocodePoints[0].coordinates[1],
+                    Source = "Bing"
+                });
             }
         }
     }

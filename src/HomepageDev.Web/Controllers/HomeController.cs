@@ -8,5 +8,11 @@ namespace HomepageDev.Web.Controllers
         {
             return View();
         }
+
+        // mfcallahan-dev.com/adot
+        public ActionResult ADOT()
+        {
+            return View();
+        }
     }
 }

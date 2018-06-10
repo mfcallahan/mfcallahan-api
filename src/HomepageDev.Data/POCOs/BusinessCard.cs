@@ -18,17 +18,17 @@ namespace HomepageDev.Data.POCOs
 
         public BusinessCard()
         {
-            Name = ConfigurationManager.AppSettings["devInfoName"].ToString();
-            Title = ConfigurationManager.AppSettings["devInfoTitle"].ToString();
-            Address = ConfigurationManager.AppSettings["devInfoAddress"].ToString();
-            Phone = ConfigurationManager.AppSettings["devInfoPhone"].ToString();
-            Email = ConfigurationManager.AppSettings["devInfoEmail"].ToString();
-            CallSignHam = ConfigurationManager.AppSettings["callSignHam"].ToString();
-            CallSignGMRS = ConfigurationManager.AppSettings["callSignGmrs"].ToString();
-            ResumeUrl = ConfigurationManager.AppSettings["devInfoResumeUrl"].ToString();
-            LinkedInUrl = ConfigurationManager.AppSettings["devInfoLinkedInUrl"].ToString();
-            GitHubUrl = ConfigurationManager.AppSettings["devInfoGitHubUrl"].ToString();
-            GeoNetUrl = ConfigurationManager.AppSettings["devInfoGeoNetUrl"].ToString();
+            Name = ConfigurationManager.AppSettings["devInfoName"];
+            Title = ConfigurationManager.AppSettings["devInfoTitle"];
+            Address = ConfigurationManager.AppSettings["devInfoAddress"];
+            Phone = ConfigurationManager.AppSettings["devInfoPhone"];
+            Email = ConfigurationManager.AppSettings["devInfoEmail"];
+            CallSignHam = ConfigurationManager.AppSettings["callSignHam"];
+            CallSignGMRS = ConfigurationManager.AppSettings["callSignGmrs"];
+            ResumeUrl = ConfigurationManager.AppSettings["devInfoResumeUrl"];
+            LinkedInUrl = ConfigurationManager.AppSettings["devInfoLinkedInUrl"];
+            GitHubUrl = ConfigurationManager.AppSettings["devInfoGitHubUrl"];
+            GeoNetUrl = ConfigurationManager.AppSettings["devInfoGeoNetUrl"];
         }
     }
 }

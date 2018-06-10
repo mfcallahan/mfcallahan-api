@@ -1,0 +1,196 @@
+﻿{
+  "cameras": [
+    {
+      "Id": "161",
+      "Url": "http://vods.az511.com/adot_161.jpg"
+    },
+    {
+      "Id": "098",
+      "Url": "http://vods.az511.com/adot_098.jpg"
+    },
+    {
+      "Id": "220",
+      "Url": "http://vods.az511.com/adot_220.jpg"
+    },
+    {
+      "Id": "221",
+      "Url": "http://vods.az511.com/adot_221.jpg"
+    },
+    {
+      "Id": "156",
+      "Url": "http://vods.az511.com/adot_156.jpg"
+    },
+    {
+      "Id": "155",
+      "Url": "http://vods.az511.com/adot_155.jpg"
+    },
+    {
+      "Id": "154",
+      "Url": "http://vods.az511.com/adot_154.jpg"
+    },
+    {
+      "Id": "153",
+      "Url": "http://vods.az511.com/adot_153.jpg"
+    },
+    {
+      "Id": "152",
+      "Url": "http://vods.az511.com/adot_152.jpg"
+    },
+    {
+      "Id": "151",
+      "Url": "http://vods.az511.com/adot_151.jpg"
+    },
+    {
+      "Id": "149",
+      "Url": "http://vods.az511.com/adot_149.jpg"
+    },
+    {
+      "Id": "148",
+      "Url": "http://vods.az511.com/adot_148.jpg"
+    },
+    {
+      "Id": "147",
+      "Url": "http://vods.az511.com/adot_147.jpg"
+    },
+    {
+      "Id": "211",
+      "Url": "http://vods.az511.com/adot_211.jpg"
+    },
+    {
+      "Id": "210",
+      "Url": "http://vods.az511.com/adot_210.jpg"
+    },
+    {
+      "Id": "209",
+      "Url": "http://vods.az511.com/adot_209.jpg"
+    },
+    {
+      "Id": "208",
+      "Url": "http://vods.az511.com/adot_208.jpg"
+    },
+    {
+      "Id": "207",
+      "Url": "http://vods.az511.com/adot_207.jpg"
+    },
+    {
+      "Id": "206",
+      "Url": "http://vods.az511.com/adot_206.jpg"
+    },
+    {
+      "Id": "205",
+      "Url": "http://vods.az511.com/adot_205.jpg"
+    },
+    {
+      "Id": "204",
+      "Url": "http://vods.az511.com/adot_204.jpg"
+    },
+    {
+      "Id": "203",
+      "Url": "http://vods.az511.com/adot_203.jpg"
+    },
+    {
+      "Id": "095",
+      "Url": "http://vods.az511.com/adot_095.jpg"
+    },
+    {
+      "Id": "096",
+      "Url": "http://vods.az511.com/adot_096.jpg"
+    },
+    {
+      "Id": "097",
+      "Url": "http://vods.az511.com/adot_097.jpg"
+    },
+    {
+      "Id": "030",
+      "Url": "http://vods.az511.com/adot_030.jpg"
+    },
+    {
+      "Id": "031",
+      "Url": "http://vods.az511.com/adot_031.jpg"
+    },
+    {
+      "Id": "032",
+      "Url": "http://vods.az511.com/adot_032.jpg"
+    },
+    {
+      "Id": "033",
+      "Url": "http://vods.az511.com/adot_033.jpg"
+    },
+    {
+      "Id": "034",
+      "Url": "http://vods.az511.com/adot_034.jpg"
+    },
+    {
+      "Id": "035",
+      "Url": "http://vods.az511.com/adot_035.jpg"
+    },
+    {
+      "Id": "036",
+      "Url": "http://vods.az511.com/adot_036.jpg"
+    },
+    {
+      "Id": "037",
+      "Url": "http://vods.az511.com/adot_037.jpg"
+    },
+    {
+      "Id": "046",
+      "Url": "http://vods.az511.com/adot_046.jpg"
+    },
+    {
+      "Id": "046",
+      "Url": "http://vods.az511.com/adot_046.jpg"
+    },
+    {
+      "Id": "047",
+      "Url": "http://vods.az511.com/adot_047.jpg"
+    },
+    {
+      "Id": "159",
+      "Url": "http://vods.az511.com/adot_159.jpg"
+    },
+    {
+      "Id": "158",
+      "Url": "http://vods.az511.com/adot_158.jpg"
+    },
+    {
+      "Id": "157",
+      "Url": "http://vods.az511.com/adot_157.jpg"
+    },
+    {
+      "Id": "099",
+      "Url": "http://vods.az511.com/adot_099.jpg"
+    },
+    {
+      "Id": "222",
+      "Url": "http://vods.az511.com/adot_222.jpg"
+    },
+    {
+      "Id": "175",
+      "Url": "http://vods.az511.com/adot_175.jpg"
+    },
+    {
+      "Id": "174",
+      "Url": "http://vods.az511.com/adot_174.jpg"
+    },
+    {
+      "Id": "173",
+      "Url": "http://vods.az511.com/adot_173.jpg"
+    },
+    {
+      "Id": "172",
+      "Url": "http://vods.az511.com/adot_172.jpg"
+    },
+    {
+      "Id": "171",
+      "Url": "http://vods.az511.com/adot_171.jpg"
+    },
+    {
+      "Id": "170",
+      "Url": "http://vods.az511.com/adot_170.jpg"
+    },
+    {
+      "Id": "169",
+      "Url": "http://vods.az511.com/adot_169.jpg"
+    }
+  ]
+}

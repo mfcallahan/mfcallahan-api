@@ -39,10 +39,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APIs\Bing.cs" />
+    <Compile Include="APIs\BingGeocoder.cs" />
     <Compile Include="APIs\IpApi.cs" />
-    <Compile Include="POCOs\ApiInputAddress.cs" />
-    <Compile Include="POCOs\ApiOutputAddress.cs" />
+    <Compile Include="POCOs\InputAddress.cs" />
+    <Compile Include="POCOs\OutputAddress.cs" />
     <Compile Include="POCOs\BusinessCard.cs" />
     <Compile Include="POCOs\HelloResponse.cs" />
     <Compile Include="POCOs\IpLocation.cs" />
