@@ -29,21 +29,21 @@ namespace HomepageDev.Data.APIs
             throw new NotImplementedException();
         }
 
-        public void GeocodeAddress(InputAddress inputAdr)
+        public void GeocodeAddress(InputAdr adr)
         {
             RestRequest request = new RestRequest(Method.GET);
             request.AddParameter("key", BingKey);
 
-            if (!string.IsNullOrEmpty(inputAdr.Address))
-                request.AddParameter("addressLine", inputAdr.Address);
-            if (!string.IsNullOrEmpty(inputAdr.City))
-                request.AddParameter("locality", inputAdr.City);
-            if (!string.IsNullOrEmpty(inputAdr.StateProv))
-                request.AddParameter("adminDistrict", inputAdr.StateProv);
-            if (!string.IsNullOrEmpty(inputAdr.PostalCode))
-                request.AddParameter("inputAdr.PostalCode", inputAdr.PostalCode);
-            if (!string.IsNullOrEmpty(inputAdr.Country))
-                request.AddParameter("countryRegion", inputAdr.Country);
+            if (!string.IsNullOrEmpty(adr.InputAddress))
+                request.AddParameter("addressLine", adr.InputAddress);
+            if (!string.IsNullOrEmpty(adr.InputCity))
+                request.AddParameter("locality", adr.InputCity);
+            if (!string.IsNullOrEmpty(adr.InputStateProv))
+                request.AddParameter("adminDistrict", adr.InputStateProv);
+            if (!string.IsNullOrEmpty(adr.InputPostalCode))
+                request.AddParameter("inputAdr.PostalCode", adr.InputPostalCode);
+            if (!string.IsNullOrEmpty(adr.InputCountry))
+                request.AddParameter("countryRegion", adr.InputCountry);
 
             IRestResponse response = null;
 
@@ -53,13 +53,13 @@ namespace HomepageDev.Data.APIs
             }
             catch (Exception ex)
             {
-                inputAdr.Status = "BingGeocoder.GeocodeAddress() error: " + ex;
+                adr.Status = "BingGeocoder.GeocodeAddress() error: " + ex;
                 return;
             }
 
             if (!response.IsSuccessful)
             {
-                inputAdr.Status = "BingGeocoder.GeocodeAddress() error: response.IsSuccessful = " + response.IsSuccessful + "; response.StatusDescription = " + response.StatusDescription;
+                adr.Status = "BingGeocoder.GeocodeAddress() error: response.IsSuccessful = " + response.IsSuccessful + "; response.StatusDescription = " + response.StatusDescription;
                 return;
             }
 
@@ -67,7 +67,7 @@ namespace HomepageDev.Data.APIs
 
             foreach (var r in output.resourceSets[0].resources)
             {
-                inputAdr.OutputAddresses.Add(new OutputAddress()
+                adr.OutputAddresses.Add(new OutputAdr()
                 {
                     Address = r.address.addressLine,
                     City = r.address.locality,
@@ -81,7 +81,7 @@ namespace HomepageDev.Data.APIs
                 });
             }
 
-            inputAdr.Status = "OK";
+            adr.Status = "OK";
         }
     }
 

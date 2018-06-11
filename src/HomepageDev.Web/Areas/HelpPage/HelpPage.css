@@ -1,15 +1,16 @@
-.help-page {
-    background: #696969;
-    padding: 60px;
-    margin-bottom: 20px;
-    font-family: "Century Gothic", "Apple Gothic", AppleGothic, "Avant Garde", Futura, sans-serif;
+.help-page h1,
+.help-page .h1,
+.help-page h2,
+.help-page .h2,
+.help-page h3,
+.help-page .h3,
+#body.help-page,
+.help-page-table th,
+.help-page-table pre,
+.help-page-table p {
+    font-family: "Segoe UI Light", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
-.help-page h1 {
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-}
- 
 .help-page pre.wrapped {
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
@@ -84,23 +85,6 @@
 .help-page .api-name {
     width: 40%;
 }
-
-.help-page a {
-    color: #4ddbff !important;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -ms-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-}
-
-    .help-page a:hover {
-        text-decoration: underline;
-        color: #00a3cc !important;
-    }
-
-    .help-page a:focus {
-        text-decoration: none;
-    }
 
 .help-page .api-documentation {
     width: 60%;

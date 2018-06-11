@@ -121,7 +121,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Gmrs\mapGmrs.js" />
     <Content Include="Content\Home\css\site.css" />
-    <Content Include="Content\Home\img\ratsnest.jpg" />
+    <Content Include="Content\Home\img\mario.png" />
+    <Content Include="Content\Home\img\ratsnest.png" />
     <Content Include="Content\Map\css\map.css" />
     <Content Include="Content\Map\js\map.js" />
     <Content Include="favicon.ico" />
@@ -149,9 +150,9 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\ADOT\cameras.json" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
-    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
@@ -169,7 +170,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="Content\ADOT\cameras.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
