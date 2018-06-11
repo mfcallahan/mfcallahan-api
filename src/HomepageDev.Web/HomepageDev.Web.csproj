@@ -121,7 +121,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Gmrs\mapGmrs.js" />
     <Content Include="Content\Home\css\site.css" />
-    <Content Include="Content\Home\img\ratsnest.jpg" />
+    <Content Include="Content\Home\img\mario.png" />
+    <Content Include="Content\Home\img\ratsnest.png" />
     <Content Include="Content\Map\css\map.css" />
     <Content Include="Content\Map\js\map.js" />
     <Content Include="favicon.ico" />
