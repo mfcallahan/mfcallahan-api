@@ -3,7 +3,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Web.Http;
-using HomepageDev.Data;
 using HomepageDev.Data.POCOs;
 using HomepageDev.Data.APIs;
 
@@ -48,7 +47,7 @@ namespace HomepageDev.Web.Controllers
             if (length > 100)
                 length = 100;
 
-            return HomepageDev.Data.RandomString.GenerateRandomString(length, useNums);
+            return HomepageDev.Data.Tools.RandomString.GenerateRandomString(length, useNums);
         }
 
 

@@ -11,7 +11,7 @@ namespace HomepageDev.Data.APIs
     {
         readonly string BingKey;
         readonly string BingUrl;
-        readonly RestClient Client;
+        readonly RestClient BingRestClient;
 
         public BingGeocoder()
         {
@@ -20,8 +20,8 @@ namespace HomepageDev.Data.APIs
 
             //CheckLimit();
 
-            Client = new RestClient(BingUrl);
-            Client.AddDefaultParameter("key", BingKey);
+            BingRestClient = new RestClient(BingUrl);
+            BingRestClient.AddDefaultParameter("key", BingKey);
         }
 
         bool CheckLimit()
@@ -49,7 +49,7 @@ namespace HomepageDev.Data.APIs
 
             try
             {
-                response = Client.Execute(request);
+                response = BingRestClient.Execute(request);
             }
             catch (Exception ex)
             {
@@ -63,7 +63,7 @@ namespace HomepageDev.Data.APIs
                 return;
             }
 
-            BingGeocodeOutput output = JsonConvert.DeserializeObject<BingGeocodeOutput>(response.Content);
+            BingOutput output = JsonConvert.DeserializeObject<BingOutput>(response.Content);
 
             foreach (var r in output.resourceSets[0].resources)
             {
@@ -85,7 +85,7 @@ namespace HomepageDev.Data.APIs
         }
     }
 
-    public class BingGeocodeOutput
+    class BingOutput
     {
         public string authenticationResultCode { get; set; }
         public string brandLogoUri { get; set; }
@@ -96,13 +96,13 @@ namespace HomepageDev.Data.APIs
         public string traceId { get; set; }
     }
 
-    public class BingResourceSet
+    class BingResourceSet
     {
         public int estimatedTotal { get; set; }
         public IList<BingResource> resources { get; set; }
     }
 
-    public class BingResource
+    class BingResource
     {
         public string __type { get; set; }
         public IList<double> bbox { get; set; }
@@ -115,13 +115,13 @@ namespace HomepageDev.Data.APIs
         public IList<string> matchCodes { get; set; }
     }
 
-    public class BingPoint
+    class BingPoint
     {
         public string type { get; set; }
         public IList<double> coordinates { get; set; }
     }
 
-    public class BingAddress
+    class BingAddress
     {
         public string addressLine { get; set; }
         public string adminDistrict { get; set; }
@@ -132,7 +132,7 @@ namespace HomepageDev.Data.APIs
         public string postalCode { get; set; }
     }
 
-    public class BingGeocodePoint
+    class BingGeocodePoint
     {
         public string type { get; set; }
         public IList<double> coordinates { get; set; }
