@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.Net;
 
-namespace HomepageDev.Data
+namespace HomepageDev.Data.APIs
 {
     public static class IpApi
     {

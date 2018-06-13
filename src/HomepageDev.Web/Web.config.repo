@@ -5,12 +5,15 @@
   -->
 <configuration>
   <appSettings>
+    
     <!-- AGOL -->
-    <add key="gmrsLayerUrl" value="http://www.arcgis.com/sharing/rest/content/items/179ef9f9a1804859b0b548d970e44c07/data" />
+    <add key="gmrsLayerUrl" value="" />
     <add key="campingLayerUrl" value="" />
+    
     <!-- Bing -->
     <add key="bingKey" value="" />
     <add key="bingUrl" value="" />
+    
     <!-- API: GetDeveloperInfo() -->
     <add key="devInfoName" value="" />
     <add key="devInfoTitle" value="" />
@@ -25,10 +28,12 @@
     <add key="devInfoGeoNetUrl" value="" />
     <add key="leafletCdnCss" value="" />
     <add key="leafletCdnJs" value="" />
+    
     <add key="webpages:Version" value="3.0.0.0" />
     <add key="webpages:Enabled" value="false" />
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    
   </appSettings>
   <!--
     For a description of web.config changes see http://go.microsoft.com/fwlink/?LinkId=235367.
@@ -68,14 +73,12 @@
     </assemblyBinding>
   </runtime>
   <system.webServer>
+    <httpErrors errorMode="Detailed" />
     <handlers>
       <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
       <remove name="OPTIONSVerbHandler" />
       <remove name="TRACEVerbHandler" />
       <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
     </handlers>
-    <staticContent>
-      <mimeMap fileExtension=".json" mimeType="application/json" />
-    </staticContent>
   </system.webServer>
 </configuration>
