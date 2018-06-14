@@ -89,7 +89,7 @@ namespace HomepageDev.Web.Controllers
         /// /// <param name="waitSeconds">The number seconds the server will wait before responding. (min 0, max 10)</param>
         [HttpGet]
         [Route("api/GetDelayedResponse")]
-        public string GetDelayedResponse(int waitSeconds)
+        public string GetDelayedResponse(int waitSeconds = 0)
         {
             if (waitSeconds < 0)
                 waitSeconds = 0;
