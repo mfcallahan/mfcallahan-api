@@ -78,9 +78,9 @@ namespace HomepageDev.Web.Controllers
         /// <param name="ipAdr">The input IP address</param>
         [HttpGet]
         [Route("api/IpInfo")]
-        public IpLocation IpInfo(string ipAdr)
+        public IpDataResponse IpInfo(string ipAdr)
         {
-            return IpApi.GetIpInfo(ipAdr);
+            return IpDataApi.GetIpInfo(ipAdr);
         }
 
         /// <summary>

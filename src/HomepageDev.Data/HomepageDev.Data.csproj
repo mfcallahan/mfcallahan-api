@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIs\BingGeocoder.cs" />
-    <Compile Include="APIs\IpApi.cs" />
+    <Compile Include="APIs\IpDataApi.cs" />
     <Compile Include="ESRI\Features.cs" />
     <Compile Include="POCOs\Esri.cs" />
     <Compile Include="POCOs\GmrsRepeater.cs" />
@@ -48,7 +48,7 @@
     <Compile Include="POCOs\OutputAdr.cs" />
     <Compile Include="POCOs\BusinessCard.cs" />
     <Compile Include="POCOs\HelloResponse.cs" />
-    <Compile Include="POCOs\IpLocation.cs" />
+    <Compile Include="POCOs\IpDataResponse.cs" />
     <Compile Include="Tools\RandomString.cs" />
   </ItemGroup>
   <ItemGroup>
