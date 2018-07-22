@@ -36,15 +36,18 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EmbeddedResource Include="MyGmrs\repeaters.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIs\BingGeocoder.cs" />
     <Compile Include="APIs\IpDataApi.cs" />
+    <Compile Include="MyGmrs\MyGmrsRepeaters.cs" />
     <Compile Include="ESRI\Features.cs" />
     <Compile Include="POCOs\Esri.cs" />
     <Compile Include="POCOs\GmrsRepeater.cs" />
     <Compile Include="POCOs\InputAdr.cs" />
+    <Compile Include="POCOs\MyGmrsRepeaters.cs" />
     <Compile Include="POCOs\OutputAdr.cs" />
     <Compile Include="POCOs\BusinessCard.cs" />
     <Compile Include="POCOs\HelloResponse.cs" />

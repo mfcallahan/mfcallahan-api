@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Net;
 
-namespace HomepageDev.Data.APIs
+namespace HomepageDev.Data.Apis
 {
     public static class IpDataApi
     {

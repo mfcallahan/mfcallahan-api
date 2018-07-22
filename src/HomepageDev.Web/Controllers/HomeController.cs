@@ -20,5 +20,11 @@ namespace HomepageDev.Web.Controllers
         {
             return View();
         }
+
+        [Route("mygmrs")]
+        public ActionResult MyGMRS()
+        {
+            return View();
+        }
     }
 }
