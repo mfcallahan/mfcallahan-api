@@ -2,10 +2,6 @@
     height: 100%;
 }
 
-/*body {
-    padding-top: 51px;
-}*/
-
 .navbar-inverse {
     background-color: #021fd1;
 }
@@ -40,14 +36,10 @@ div#map-canvas {
     height: 100%;
 }
 
-.infowindow-content img {
-    max-width: 100%;
-}
-
-.infowindow-content > table > tbody > tr > th,
+/*.infowindow-content > table > tbody > tr > th,
 .infowindow-content > table > tbody > tr > td {
     white-space: nowrap;
-}
+}*/
 
 .alert {
     position: absolute;
@@ -56,28 +48,6 @@ div#map-canvas {
     width: 100%;
 }
 
-
-.loading {
-    text-align: center;
-    position: absolute;
-    top: 42%;
-    left: 0;
-    width: 100%;
-}
-
-.loading-background {
-    padding: 25px;
-    background-color: #ffffff;
-    opacity: 0.75;
-    margin: 0 auto;
-    font-size: 24px;
-    /*width: 300px;*/
-}
-
-    .loading-background > span.glyphicon {
-        font-size: 72px;
-    }
-
 .rotate {
     overflow: hidden;
     -webkit-animation-name: rotate;
@@ -85,49 +55,6 @@ div#map-canvas {
     -webkit-animation-iteration-count: infinite;
     /*-webkit-animation-timing-function: linear;*/
     -webkit-animation-timing-function: ease-in-out;
-}
-
-.marker-label {
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-div.marker-label {
-    display: block;
-    width: 500px; /* Maximum width of label */
-    margin-left: -250px; /* 1/2 maximum width of label */
-    margin-top: -30px; /* vertical offset, negative is up */
-    text-align: center;
-    pointer-events: none;
-}
-
-    div.marker-label span {
-        display: inline-block;
-        padding: 2px 5px;
-        border-radius: 5px;
-        max-width: 500px; /* Maximum width of label */
-        min-width: 50px; /* Minimum width of label */
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        color: #FFF;
-        background-color: rgba(50, 50, 50, 0.8);
-        pointer-events: auto;
-    }
-
-div.marker-label-line span {
-    color: #222;
-    background-color: rgba(250, 50, 50, 0.8);
-}
-
-@-webkit-keyframes rotate {
-    from {
-        -webkit-transform: rotate(0deg);
-    }
-
-    to {
-        -webkit-transform: rotate(360deg);
-    }
 }
 
 #myGmrsMap {
