@@ -38,10 +38,11 @@ namespace HomepageDev.Data.MyGmrs
             //output.RequestStatus = "OK";
 
             //return output;
+            //TODO: figure out why repeaters in reply is empty
             return null;
         }
 
-        public string GetRepeatersFromJson()
+        public string GetRepeatersFromFile()
         {
             using (var s = Assembly.GetExecutingAssembly().GetManifestResourceStream("HomepageDev.Data.MyGmrs.repeaters.json"))
             {

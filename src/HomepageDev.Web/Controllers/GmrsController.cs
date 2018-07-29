@@ -41,7 +41,7 @@ namespace HomepageDev.Controllers
         public JsonResult GetMyGmrsRepeaters()
         {
             var myGmrs = new MyGmrsRepeaters();
-            return Json(myGmrs.GetRepeatersFromJson());       
+            return Json(myGmrs.GetRepeatersFromFile());       
         }
     }
 

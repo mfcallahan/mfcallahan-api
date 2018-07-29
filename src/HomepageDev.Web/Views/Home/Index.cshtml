@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "mfcallahan-dev";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -11,8 +10,8 @@
     </div>
     <div class="col-md-6">
         <div class="text-center">
-            <img src="https://i.imgur.com/RP3r6X2.png" style="max-width: 100%;" />            
-        </div>        
+            <img src="@Url.Content("~/Content/Home/img/mario3.gif")" style="max-width: 100%;" />
+        </div>
         <ul class="list-group">
             <li class="list-group-item">
                 <a href="@Url.Content("~/api")" target="_blank" rel="noopener">mfcallahan-dev.com API</a>
@@ -23,8 +22,13 @@
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="@Url.Content("~/Home/ADOT")" target="_blank" rel="noopener">
+                <a href="@Url.Content("~/ADOT")" target="_blank" rel="noopener">
                     ADOT Cameras
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="@Url.Content("~/Home/MyGMRS")" target="_blank" rel="noopener">
+                    MyGMRS Map
                 </a>
             </li>
         </ul>
