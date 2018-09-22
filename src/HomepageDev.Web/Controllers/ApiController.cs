@@ -19,16 +19,6 @@ namespace HomepageDev.Web.Controllers
         /// </hello>
         [HttpGet]
         [Route("api/Hello")]
-        public BusinessCard About()
-        {
-            return new BusinessCard();
-        }
-
-        /// <summary>
-        /// Returns a message verifing the API is up and responding.
-        /// </summary>
-        [HttpGet]
-        [Route("api/Hello")]
         public HelloResponse Hello()
         {
             return new HelloResponse("200", "Hello. The API at mfcallahan.com is responding.");

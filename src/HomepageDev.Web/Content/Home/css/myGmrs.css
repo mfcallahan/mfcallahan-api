@@ -36,11 +36,6 @@ div#map-canvas {
     height: 100%;
 }
 
-/*.infowindow-content > table > tbody > tr > th,
-.infowindow-content > table > tbody > tr > td {
-    white-space: nowrap;
-}*/
-
 .alert {
     position: absolute;
     bottom: 0;
@@ -57,7 +52,7 @@ div#map-canvas {
     -webkit-animation-timing-function: ease-in-out;
 }
 
-#myGmrsMap {
+#cvMap {
     height: 100%;
     width: 100%;
 }
