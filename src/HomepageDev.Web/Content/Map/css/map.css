@@ -1,13 +1,4 @@
-﻿/*WeatherMap*/
-#map {
-    height: 90vh;
-}
-
-#map_root {
-    position: absolute !important;
-}
-
-/*Camping*/
+﻿/*Camping*/
 .camping-map {
     height: 90vh;
     width: 100%;

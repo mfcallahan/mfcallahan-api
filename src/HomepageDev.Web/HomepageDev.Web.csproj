@@ -119,14 +119,17 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Gmrs\mapGmrs.js" />
+    <Content Include="Content\Home\css\myGmrs.css" />
+    <Content Include="Content\Home\img\marker-blue.png" />
+    <Content Include="Content\Home\img\marker-gray.png" />
+    <Content Include="Content\Home\scripts\myGmrs.js" />
     <Content Include="Content\Home\css\site.css" />
-    <Content Include="Content\Home\img\mario.png" />
-    <Content Include="Content\Home\img\ratsnest.png" />
+    <Content Include="Content\Home\img\mario3.gif" />
     <Content Include="Content\Map\css\map.css" />
     <Content Include="Content\Map\js\map.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="HTML\MyGMRS-map-orig.html" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -246,8 +249,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Map\Index.cshtml" />
     <Content Include="Views\Home\ADOT.cshtml" />
-    <Content Include="Views\Gmrs\Index.cshtml" />
     <Content Include="Views\Home\Camping.cshtml" />
+    <Content Include="Views\Home\MyGMRS.cshtml" />
     <None Include="Views\web.config.publish" />
   </ItemGroup>
   <ItemGroup>

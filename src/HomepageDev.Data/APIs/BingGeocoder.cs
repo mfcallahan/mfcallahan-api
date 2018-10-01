@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 
-namespace HomepageDev.Data.APIs
+namespace HomepageDev.Data.Apis
 {
     public class BingGeocoder
     {

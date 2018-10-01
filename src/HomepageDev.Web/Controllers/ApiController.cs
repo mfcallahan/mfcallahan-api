@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading;
 using System.Web.Http;
 using HomepageDev.Data.POCOs;
-using HomepageDev.Data.APIs;
+using HomepageDev.Data.Apis;
 
 namespace HomepageDev.Web.Controllers
 {
@@ -18,15 +18,6 @@ namespace HomepageDev.Web.Controllers
         ///  passion for software development as I do.  Cool, hit me up: matthew.callahan@outlook.com
         /// </hello>
         [HttpGet]
-        public BusinessCard About()
-        {
-            return new BusinessCard();
-        }
-
-        /// <summary>
-        /// Returns a message verifing the API is up and responding.
-        /// </summary>
-        [HttpGet]
         [Route("api/Hello")]
         public HelloResponse Hello()
         {
@@ -39,6 +30,7 @@ namespace HomepageDev.Web.Controllers
         /// <param name="length">The desired length of the random string</param>
         /// <param name="useNums">Use numerical chars in the random string</param>
         [HttpGet]
+        [Route("api/RandomString")]
         public string RandomString(int length, bool useNums = true)
         {
             if (length < 0)
@@ -78,9 +70,9 @@ namespace HomepageDev.Web.Controllers
         /// <param name="ipAdr">The input IP address</param>
         [HttpGet]
         [Route("api/IpInfo")]
-        public IpLocation IpInfo(string ipAdr)
+        public IpDataResponse IpInfo(string ipAdr)
         {
-            return IpApi.GetIpInfo(ipAdr);
+            return IpDataApi.GetIpInfo(ipAdr);
         }
 
         /// <summary>
