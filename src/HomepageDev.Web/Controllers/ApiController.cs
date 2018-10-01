@@ -8,6 +8,7 @@ using HomepageDev.Data.Apis;
 
 namespace HomepageDev.Web.Controllers
 {
+    [Route("api")]
     public class DevApiController : ApiController
     {
         /// <summary>
@@ -18,7 +19,7 @@ namespace HomepageDev.Web.Controllers
         ///  passion for software development as I do.  Cool, hit me up: matthew.callahan@outlook.com
         /// </hello>
         [HttpGet]
-        [Route("api/Hello")]
+        [Route("Hello")]
         public HelloResponse Hello()
         {
             return new HelloResponse("200", "Hello. The API at mfcallahan.com is responding.");
@@ -30,7 +31,7 @@ namespace HomepageDev.Web.Controllers
         /// <param name="length">The desired length of the random string</param>
         /// <param name="useNums">Use numerical chars in the random string</param>
         [HttpGet]
-        [Route("api/RandomString")]
+        [Route("RandomString")]
         public string RandomString(int length, bool useNums = true)
         {
             if (length < 0)
@@ -53,9 +54,9 @@ namespace HomepageDev.Web.Controllers
         /// <param name="postalCode">The input city, ex: 53703</param>
         /// <param name="country">The input city, ex: USA</param>
         [HttpGet]
-        [Route("api/Geocode")]
+        [Route("Geocode")]
         public InputAdr Geocode(string address = "", string city = "", string stateProv = "", string postalCode = "", string country = "")
-        {
+        {            
             InputAdr inputAdr = new InputAdr(address, city, stateProv, postalCode, country);
 
             BingGeocoder bing = new BingGeocoder();
@@ -69,7 +70,7 @@ namespace HomepageDev.Web.Controllers
         /// </summary>
         /// <param name="ipAdr">The input IP address</param>
         [HttpGet]
-        [Route("api/IpInfo")]
+        [Route("IpInfo")]
         public IpDataResponse IpInfo(string ipAdr)
         {
             return IpDataApi.GetIpInfo(ipAdr);
@@ -80,7 +81,7 @@ namespace HomepageDev.Web.Controllers
         /// </summary>
         /// /// <param name="waitSeconds">The number seconds the server will wait before responding. (min 0, max 10)</param>
         [HttpGet]
-        [Route("api/GetDelayedResponse")]
+        [Route("GetDelayedResponse")]
         public string GetDelayedResponse(int waitSeconds = 0)
         {
             if (waitSeconds < 0)
