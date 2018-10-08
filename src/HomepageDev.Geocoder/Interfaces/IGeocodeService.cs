@@ -5,6 +5,6 @@ namespace HomepageDev.Geocoder.Interfaces
 {
     public interface IGeocodeService
     {
-        void GeocodeAddresses(List<InputAddress> inputAddresses);
+        void GeocodeAddresses(IEnumerable<InputAddress> inputAddresses);
     }
 }

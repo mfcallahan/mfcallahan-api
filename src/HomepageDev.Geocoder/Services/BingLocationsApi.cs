@@ -32,7 +32,7 @@ namespace HomepageDev.Geocoder.Services
             throw new NotImplementedException();
         }
 
-        public void GeocodeAddresses(List<InputAddress> inputAddresses)
+        public void GeocodeAddresses(IEnumerable<InputAddress> inputAddresses)
         {
             foreach (var adr in inputAddresses)
             {

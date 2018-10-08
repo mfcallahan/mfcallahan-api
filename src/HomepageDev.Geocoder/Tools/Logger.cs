@@ -7,5 +7,9 @@ namespace HomepageDev.Geocoder.Tools
 {
     public class Logger
     {
+        public void LogMessgae(string message)
+        {
+
+        }
     }
 }

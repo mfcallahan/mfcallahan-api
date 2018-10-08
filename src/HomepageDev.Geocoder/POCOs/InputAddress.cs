@@ -27,7 +27,7 @@ namespace HomepageDev.Geocoder.POCOs
         public string StateProv { get; set; }
         public string PostalCode { get; set; }
         public string Country { get; set; }
-        public string Status { get; set; }
+        public bool Success { get; set; }
         public IList<OutputAddress> OutputAddresses { get; set; }
     }
 }

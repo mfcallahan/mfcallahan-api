@@ -116,6 +116,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IGeocoder.cs" />
     <Compile Include="Interfaces\IGeocodeService.cs" />
     <Compile Include="POCOs\Bing.cs" />
     <Compile Include="POCOs\InputAddress.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BingLocationsApi.cs" />
     <Compile Include="Tools\ConfidenceCalculator.cs" />
+    <Compile Include="Tools\Extensions.cs" />
     <Compile Include="Tools\Logger.cs" />
   </ItemGroup>
   <ItemGroup>
