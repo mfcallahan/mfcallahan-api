@@ -17,20 +17,16 @@ namespace HomepageDev.Geocoder.ApplicationLogic
         public DateTime RequestTime { get; set; }
         public bool IsSuccess { get; set; }
         private bool useBing = Convert.ToBoolean(ConfigurationManager.AppSettings["useBing"]);
-        private bool useSomeOtherSource = Convert.ToBoolean(ConfigurationManager.AppSettings["useSource"]);
+        private bool useMapQuest = Convert.ToBoolean(ConfigurationManager.AppSettings["useMapQuest"]);
         private const int LIST_CHUNK_SIZE = 100;
 
-        public Geocoder(IList<InputAddress> inputAddresses)
-        {
-            InputAddresses = inputAddresses;
-        }
+        public Geocoder(IList<InputAddress> inputAddresses) => InputAddresses = inputAddresses;
 
-        public Geocoder(InputAddress inputAddress)
-        {
-            InputAddresses = new List<InputAddress> { inputAddress };
-        }
+        public Geocoder(InputAddress inputAddress) => InputAddresses = new List<InputAddress> { inputAddress };
 
-        public async void GetGeocodeResultsAsync()
+        public Geocoder(BatchInputAddresses batchInput) => InputAddresses = batchInput.Addresses;
+
+        public void GetGeocodeResults()
         {
             var inputAddressChunks = InputAddresses.SplitList(LIST_CHUNK_SIZE);
 

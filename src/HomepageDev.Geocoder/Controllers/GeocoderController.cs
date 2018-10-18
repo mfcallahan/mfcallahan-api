@@ -33,7 +33,7 @@ namespace HomepageDev.Geocoder.Controllers
 
             try
             {
-                geocoder.GetGeocodeResultsAsync();
+                geocoder.GetGeocodeResults();
             }
             catch (Exception ex)
             {
@@ -44,6 +44,27 @@ namespace HomepageDev.Geocoder.Controllers
             //return geocded adrs
 
             return null;
+        }
+
+        [Route("batchGeocode")]
+        public IList<InputAddress> BatchGeocode([FromBody] BatchInputAddresses batchInput)
+        {
+            //check for no input
+
+            var geocoder = new HomepageDev.Geocoder.ApplicationLogic.Geocoder(batchInput);
+
+            try
+            {
+                geocoder.GetGeocodeResults();
+            }
+            catch (Exception ex)
+            {
+                //return internal server error
+                //this.Request.CreateErrorResponse();
+            }
+
+
+            throw new NotImplementedException();
         }
 
         private bool SourceExists(string source)

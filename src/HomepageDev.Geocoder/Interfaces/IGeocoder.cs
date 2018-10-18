@@ -14,6 +14,6 @@ namespace HomepageDev.Geocoder.Interfaces
         DateTime RequestTime { get; set; }
         bool IsSuccess { get; set; }
 
-        void GetGeocodeResultsAsync();
+        void GetGeocodeResults();
     }
 }

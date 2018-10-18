@@ -27,7 +27,7 @@ namespace HomepageDev.Geocoder.Services
             BingRestClient.AddDefaultParameter("key", BingKey);
         }
 
-        bool CheckLimit()
+        private static bool CheckLimit()
         {
             throw new NotImplementedException();
         }
@@ -58,12 +58,12 @@ namespace HomepageDev.Geocoder.Services
                 }
                 catch (Exception ex)
                 {
-                    adr.Status = "BingGeocoder.GeocodeAddress() error: " + ex;                    
+                    //adr.Status = "BingGeocoder.GeocodeAddress() error: " + ex;                    
                 }
 
                 if (!response.IsSuccessful)
                 {
-                    adr.Status = "BingGeocoder.GeocodeAddress() error: response.IsSuccessful = " + response.IsSuccessful + "; response.StatusDescription = " + response.StatusDescription;
+                    //adr.Status = "BingGeocoder.GeocodeAddress() error: response.IsSuccessful = " + response.IsSuccessful + "; response.StatusDescription = " + response.StatusDescription;
                     
                 }
 
@@ -85,7 +85,7 @@ namespace HomepageDev.Geocoder.Services
                     });
                 }
 
-                adr.Status = "OK";
+                //adr.Status = "OK";
             }
 
         }

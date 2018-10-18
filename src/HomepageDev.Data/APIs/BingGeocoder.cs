@@ -29,21 +29,21 @@ namespace HomepageDev.Data.Apis
             throw new NotImplementedException();
         }
 
-        public void GeocodeAddress(InputAdr adr)
+        public void GeocodeAddress(InputAddress adr)
         {
             RestRequest request = new RestRequest(Method.GET);
             request.AddParameter("key", BingKey);
 
-            if (!string.IsNullOrEmpty(adr.InputAddress))
-                request.AddParameter("addressLine", adr.InputAddress);
+            if (!string.IsNullOrEmpty(adr.Address))
+                request.AddParameter("addressLine", adr.Address);
             if (!string.IsNullOrEmpty(adr.InputCity))
                 request.AddParameter("locality", adr.InputCity);
-            if (!string.IsNullOrEmpty(adr.InputStateProv))
-                request.AddParameter("adminDistrict", adr.InputStateProv);
-            if (!string.IsNullOrEmpty(adr.InputPostalCode))
-                request.AddParameter("inputAdr.PostalCode", adr.InputPostalCode);
-            if (!string.IsNullOrEmpty(adr.InputCountry))
-                request.AddParameter("countryRegion", adr.InputCountry);
+            if (!string.IsNullOrEmpty(adr.StateProv))
+                request.AddParameter("adminDistrict", adr.StateProv);
+            if (!string.IsNullOrEmpty(adr.PostalCode))
+                request.AddParameter("inputAdr.PostalCode", adr.PostalCode);
+            if (!string.IsNullOrEmpty(adr.Country))
+                request.AddParameter("countryRegion", adr.Country);
 
             IRestResponse response = null;
 
@@ -67,7 +67,7 @@ namespace HomepageDev.Data.Apis
 
             foreach (var r in output.resourceSets[0].resources)
             {
-                adr.OutputAddresses.Add(new OutputAdr()
+                adr.OutputAddresses.Add(new OutputAddress()
                 {
                     Address = r.address.addressLine,
                     City = r.address.locality,

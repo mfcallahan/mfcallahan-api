@@ -118,11 +118,13 @@
     </Compile>
     <Compile Include="Interfaces\IGeocoder.cs" />
     <Compile Include="Interfaces\IGeocodeService.cs" />
+    <Compile Include="POCOs\BatchInputAddresses.cs" />
     <Compile Include="POCOs\Bing.cs" />
     <Compile Include="POCOs\InputAddress.cs" />
     <Compile Include="POCOs\OutputAddress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BingLocationsApi.cs" />
+    <Compile Include="Services\MapquestApi.cs" />
     <Compile Include="Tools\ConfidenceCalculator.cs" />
     <Compile Include="Tools\Extensions.cs" />
     <Compile Include="Tools\Logger.cs" />
@@ -130,6 +132,7 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <Content Include="SampleData\addresses_to_geocode.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
