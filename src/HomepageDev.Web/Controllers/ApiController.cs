@@ -55,9 +55,9 @@ namespace HomepageDev.Web.Controllers
         /// <param name="country">The input city, ex: USA</param>
         [HttpGet]
         [Route("Geocode")]
-        public InputAdr Geocode(string address = "", string city = "", string stateProv = "", string postalCode = "", string country = "")
+        public InputAddress Geocode(string address = "", string city = "", string stateProv = "", string postalCode = "", string country = "")
         {            
-            InputAdr inputAdr = new InputAdr(address, city, stateProv, postalCode, country);
+            InputAddress inputAdr = new InputAddress(address, city, stateProv, postalCode, country);
 
             BingGeocoder bing = new BingGeocoder();
             bing.GeocodeAddress(inputAdr);

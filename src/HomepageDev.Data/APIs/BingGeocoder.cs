@@ -36,8 +36,8 @@ namespace HomepageDev.Data.Apis
 
             if (!string.IsNullOrEmpty(adr.Address))
                 request.AddParameter("addressLine", adr.Address);
-            if (!string.IsNullOrEmpty(adr.InputCity))
-                request.AddParameter("locality", adr.InputCity);
+            if (!string.IsNullOrEmpty(adr.City))
+                request.AddParameter("locality", adr.City);
             if (!string.IsNullOrEmpty(adr.StateProv))
                 request.AddParameter("adminDistrict", adr.StateProv);
             if (!string.IsNullOrEmpty(adr.PostalCode))
