@@ -6,10 +6,7 @@ namespace MfcallahanDev.API.Controllers
     [Route("api")]
     public class GeocodeController : AppControllerBase
     {
-        public GeocodeController() : base()
-        {
-
-        }
+        public GeocodeController() : base() { }
 
         [Route("GeocodeAddress")]
         public ObjectResult GeocodeAddress()

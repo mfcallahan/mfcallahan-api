@@ -8,7 +8,7 @@ namespace MfcallahanDev.API.Controllers
     {
         private protected string Foo;
 
-        public AppControllerBase()
+        protected AppControllerBase()
         {
             Foo = "Bar";
         }
