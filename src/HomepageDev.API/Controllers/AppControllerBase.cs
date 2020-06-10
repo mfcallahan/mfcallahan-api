@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace MfcallahanDev.API.Controllers
+namespace HomepageDev.API.Controllers
 {
     [Route("api")]
     [ApiController]
