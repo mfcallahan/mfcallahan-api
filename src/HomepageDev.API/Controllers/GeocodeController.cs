@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace HomepageDev.API.Controllers
 {
@@ -11,7 +12,8 @@ namespace HomepageDev.API.Controllers
         [Route("GeocodeAddress")]
         public ObjectResult GeocodeAddress()
         {
-            return Ok("0, 0");
+            throw new NotImplementedException();
+            //return Ok("0, 0");
         }
     }
 }
