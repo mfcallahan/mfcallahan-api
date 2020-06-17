@@ -35,13 +35,12 @@ namespace HomepageDev
                         Name = "Matthew Callahan",
                         Email = "matthew.callahan@outlook.com",
                         Url = new Uri("https://mfcallahan.com"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "MIT License",
+                        Url = new Uri("https://github.com/mfcallahan/mfcallahan-dev/blob/master/LICENSE"),
                     }
-                    //TODO: add license to repo and update this
-                    //License = new OpenApiLicense
-                    //{
-                    //    Name = "Use under LICX",
-                    //    Url = new Uri("https://example.com/license"),
-                    //}
                 });
             });
 
