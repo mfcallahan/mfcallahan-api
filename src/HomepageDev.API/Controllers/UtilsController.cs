@@ -7,11 +7,18 @@ namespace HomepageDev.API.Controllers
     [ExcludeFromCodeCoverage]
     [ApiController]
     [Route("api/[controller]")]
-    public class UtilsController : AppControllerBase
+    public class UtilsController : ControllerBase
     {
         private const int RandomStringMaxLength = 100;
 
-        public UtilsController() : base() { }
+        //public UtilsController() : base() { }
+
+        [HttpGet]
+        [Route("Hello")]
+        public ObjectResult Hello()
+        {
+            return Ok($"Hello, the server at {Request.Host} is responding.");
+        }
 
         [HttpGet]
         [Route("RandomString")]
