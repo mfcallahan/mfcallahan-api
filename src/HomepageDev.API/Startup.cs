@@ -23,32 +23,26 @@ namespace HomepageDev
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSwaggerGenNewtonsoftSupport();
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc(apiVersion, new OpenApiInfo
-            //    {
-            //        Version = apiVersion,
-            //        Title = "mfcallahan-dev API",
-            //        Description = "A demo ASP.NET Core Web API",
-            //        Contact = new OpenApiContact
-            //        {
-            //            Name = "Matthew Callahan",
-            //            Email = "matthew.callahan@outlook.com",
-            //            Url = new Uri("https://mfcallahan.com"),
-            //        }
-            //        //TODO: add license to repo and update this
-            //        //License = new OpenApiLicense
-            //        //{
-            //        //    Name = "Use under LICX",
-            //        //    Url = new Uri("https://example.com/license"),
-            //        //}
-            //    });
-            //    //c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
-            //});
-
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyTestService", Version = "v1", });
+                c.SwaggerDoc(apiVersion, new OpenApiInfo
+                {
+                    Version = apiVersion,
+                    Title = "mfcallahan-dev API",
+                    Description = "A demo ASP.NET Core Web API",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Matthew Callahan",
+                        Email = "matthew.callahan@outlook.com",
+                        Url = new Uri("https://mfcallahan.com"),
+                    }
+                    //TODO: add license to repo and update this
+                    //License = new OpenApiLicense
+                    //{
+                    //    Name = "Use under LICX",
+                    //    Url = new Uri("https://example.com/license"),
+                    //}
+                });
             });
 
             services.AddControllers();
@@ -62,24 +56,18 @@ namespace HomepageDev
                 app.UseDeveloperExceptionPage();
             }
 
-            const string swaggerRoutePrefix = "api";
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TestService");
+                c.SwaggerEndpoint($"/swagger/{apiVersion}/swagger.json", "mfcallahan-dev API");
+                c.RoutePrefix = string.Empty;
             });
-            //app.UseSwaggerUI(c =>
-            //{
-            //    c.SwaggerEndpoint($"/{swaggerRoutePrefix}/swagger/{apiVersion}/swagger.json", "mfcallahan-dev API");
-            //    c.RoutePrefix = swaggerRoutePrefix;
-            //});
 
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
-                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}");
             });
         }
     }
