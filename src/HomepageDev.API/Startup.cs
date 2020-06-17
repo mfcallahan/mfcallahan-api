@@ -29,7 +29,7 @@ namespace HomepageDev
                 {
                     Version = apiVersion,
                     Title = "mfcallahan-dev API",
-                    Description = "A demo ASP.NET Core Web API",
+                    Description = "A demo API built with ASP.NET Core",
                     Contact = new OpenApiContact
                     {
                         Name = "Matthew Callahan",
