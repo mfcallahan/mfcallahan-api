@@ -8,7 +8,7 @@ namespace HomepageDev.API.Controllers
     [ApiController]
     public class UtilsController : AppControllerBase
     {
-        private readonly int RandomStringMaxLength = 100;
+        private const int RandomStringMaxLength = 100;
         private readonly Random Rand = new Random();
 
         public UtilsController() : base() { }
