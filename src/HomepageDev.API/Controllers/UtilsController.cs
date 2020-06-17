@@ -11,9 +11,8 @@ namespace HomepageDev.API.Controllers
     {
         private const int RandomStringMaxLength = 100;
 
-        //public UtilsController() : base() { }
-
         [HttpGet]
+        [HttpPost]
         [Route("Hello")]
         public ObjectResult Hello()
         {
