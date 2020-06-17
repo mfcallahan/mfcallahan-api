@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Linq;
+using System.Diagnostics.CodeAnalysis;
 
 namespace HomepageDev.API.Controllers
 {
-    [Route("api/[controller]")]
+    [ExcludeFromCodeCoverage]
     [ApiController]
+    [Route("api/[controller]")]
     public class UtilsController : AppControllerBase
     {
         private const int RandomStringMaxLength = 100;
-        private readonly Random Rand = new Random();
 
         public UtilsController() : base() { }
 
@@ -24,17 +24,9 @@ namespace HomepageDev.API.Controllers
                     return BadRequest($"Value of parameter 'length' must be greater than 0 and less than or equal to {RandomStringMaxLength}.");
                 }
 
-                const string charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-                var randomString = new string(
-                    Enumerable.Repeat(charSet, length)
-                    .Select(s => s[Rand.Next(s.Length)])
-                    .ToArray()
-                );
-
-                return Ok(randomString);
+                return Ok(Utils.GenerateRandomString(length));
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -46,9 +38,9 @@ namespace HomepageDev.API.Controllers
         {
             try
             {
-                return Ok(Rand.Next(minValue, maxValue));
+                return Ok(Utils.GenerateRandomInteger(minValue, maxValue));
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }

@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.CodeAnalysis;
 
 namespace HomepageDev.API.Controllers
 {
-    [Route("api")]
+    [ExcludeFromCodeCoverage]
     [ApiController]
+    [Route("api")]
     public abstract class AppControllerBase : ControllerBase
     {
         private protected string Foo;

@@ -1,4 +1,4 @@
-﻿namespace MfcallahanDev.Models
+﻿namespace HomepageDev.Models
 {
     public class Class1
     {

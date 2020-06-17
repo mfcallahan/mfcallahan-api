@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace HomepageDev.API.Controllers
 {
-    [Route("api/[controller]")]
+    [ExcludeFromCodeCoverage]
     [ApiController]
+    [Route("api/[controller]")]
     public class GeocodeController : AppControllerBase
     {
         public GeocodeController() : base() { }
