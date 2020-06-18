@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Reflection;
 
 namespace HomepageDev
 {
@@ -13,7 +15,7 @@ namespace HomepageDev
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        private const string apiVersion = "v1";
+        private readonly string apiVersion1 = "v1";
 
         public Startup(IConfiguration configuration)
         {
@@ -25,9 +27,9 @@ namespace HomepageDev
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc(apiVersion, new OpenApiInfo
+                c.SwaggerDoc(apiVersion1, new OpenApiInfo
                 {
-                    Version = apiVersion,
+                    Version = apiVersion1,
                     Title = "mfcallahan-dev API",
                     Description = "A demo API built with ASP.NET Core",
                     Contact = new OpenApiContact
@@ -42,6 +44,10 @@ namespace HomepageDev
                         Url = new Uri("https://github.com/mfcallahan/mfcallahan-dev/blob/master/LICENSE"),
                     }
                 });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
 
             services.AddControllers();
@@ -58,7 +64,7 @@ namespace HomepageDev
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint($"/swagger/{apiVersion}/swagger.json", "mfcallahan-dev API");
+                c.SwaggerEndpoint($"/swagger/{apiVersion1}/swagger.json", "mfcallahan-dev API");
                 c.RoutePrefix = string.Empty;
             });
 
