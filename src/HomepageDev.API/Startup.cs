@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Reflection;
 
 namespace HomepageDev
 {
@@ -13,7 +15,7 @@ namespace HomepageDev
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        private const string apiVersion = "v1";
+        private readonly string apiVersion1 = "v1";
 
         public Startup(IConfiguration configuration)
         {
@@ -25,24 +27,27 @@ namespace HomepageDev
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc(apiVersion, new OpenApiInfo
+                c.SwaggerDoc(apiVersion1, new OpenApiInfo
                 {
-                    Version = apiVersion,
+                    Version = apiVersion1,
                     Title = "mfcallahan-dev API",
-                    Description = "A demo ASP.NET Core Web API",
+                    Description = "A demo API built with ASP.NET Core",
                     Contact = new OpenApiContact
                     {
                         Name = "Matthew Callahan",
                         Email = "matthew.callahan@outlook.com",
                         Url = new Uri("https://mfcallahan.com"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "MIT License",
+                        Url = new Uri("https://github.com/mfcallahan/mfcallahan-dev/blob/master/LICENSE"),
                     }
-                    //TODO: add license to repo and update this
-                    //License = new OpenApiLicense
-                    //{
-                    //    Name = "Use under LICX",
-                    //    Url = new Uri("https://example.com/license"),
-                    //}
                 });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
 
             services.AddControllers();
@@ -59,16 +64,14 @@ namespace HomepageDev
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint($"/swagger/{apiVersion}/swagger.json", "mfcallahan-dev API");
+                c.SwaggerEndpoint($"/swagger/{apiVersion1}/swagger.json", "mfcallahan-dev API");
                 c.RoutePrefix = string.Empty;
             });
 
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
-            app.UseEndpoints(endpoints => {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }

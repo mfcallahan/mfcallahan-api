@@ -9,10 +9,8 @@ namespace HomepageDev.API
 
         public static string GenerateRandomString(int length)
         {
-            const string charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
             return new string(
-                Enumerable.Repeat(charSet, length)
+                Enumerable.Repeat("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", length)
                 .Select(s => s[Rand.Next(s.Length)])
                 .ToArray()
             );
@@ -25,7 +23,7 @@ namespace HomepageDev.API
                 throw new ArgumentOutOfRangeException($"minValue ({minValue}) cannot be greater than maxValue ({maxValue}).");
             }
 
-            return Rand.Next(minValue, maxValue);
+            return Rand.Next(minValue, maxValue + 1);
         }
     }
 }
