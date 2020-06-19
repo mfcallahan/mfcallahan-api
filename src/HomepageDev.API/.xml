@@ -8,28 +8,28 @@
             <summary>
             Verify server is responding.
             </summary>
-            <returns>
-            A string indicating the server name.
-            </returns>
+            <remarks>
+            Returns a message indicating the server name and that it is responding.
+            </remarks>
         </member>
         <member name="M:HomepageDev.API.Controllers.UtilsController.RandomString(System.Int32)">
             <summary>
             Generate a random string containing letters A-Z (upper and lower case) and numbers 0-9
             </summary>
-            <returns>
-            A random string of the specified length
-            </returns>
+            <remarks>
+            Returns a random string of the specified length.
+            </remarks>
             <param name="length">The desired length of the random string</param>
         </member>
         <member name="M:HomepageDev.API.Controllers.UtilsController.RandomInt(System.Int32,System.Int32)">
             <summary>
             Generate a random integer.
             </summary>
-            <returns>
-            A random integer with a value between the specified lower and upper bounds.
-            </returns>
-            <param name="maxValue">Lower bound</param>
-            <param name="minValue">Upper bound</param>
+            <remarks>
+            Returns  random integer with a value between the specified lower and upper bounds.
+            </remarks>
+            <param name="minValue">Lower bound</param>
+            <param name="maxValue">Upper bound</param>
         </member>
     </members>
 </doc>
