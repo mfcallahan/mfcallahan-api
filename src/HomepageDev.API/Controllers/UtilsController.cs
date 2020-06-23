@@ -40,7 +40,7 @@ namespace HomepageDev.API.Controllers
             {
                 if (length <= 0 || length > RandomStringMaxLength)
                 {
-                    return BadRequest($"Value of parameter 'length' must be greater than 0 and less than or equal to {RandomStringMaxLength}.");
+                    return BadRequest($"Value of parameter 'length' ({length}) must be greater than 0 and less than or equal to {RandomStringMaxLength}.");
                 }
 
                 return Ok(Utils.GenerateRandomString(length));

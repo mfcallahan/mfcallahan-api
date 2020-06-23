@@ -9,8 +9,10 @@ namespace HomepageDev.API
 
         public static string GenerateRandomString(int length)
         {
+            const string randStringChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
             return new string(
-                Enumerable.Repeat("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", length)
+                Enumerable.Repeat(randStringChars, length)
                 .Select(s => s[Rand.Next(s.Length)])
                 .ToArray()
             );

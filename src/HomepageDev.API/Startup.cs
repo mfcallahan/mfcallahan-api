@@ -1,9 +1,12 @@
+using HomepageDev.API.Interfaces;
+using HomepageDev.API.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SimpleInjector;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -15,7 +18,8 @@ namespace HomepageDev
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        private readonly string apiVersion1 = "v1";
+        private readonly string ApiVersion = "v1";
+        private readonly Container Container = new Container();
 
         public Startup(IConfiguration configuration)
         {
@@ -27,9 +31,9 @@ namespace HomepageDev
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc(apiVersion1, new OpenApiInfo
+                c.SwaggerDoc(ApiVersion, new OpenApiInfo
                 {
-                    Version = apiVersion1,
+                    Version = ApiVersion,
                     Title = "mfcallahan-dev API",
                     Description = "A demo API built with ASP.NET Core",
                     Contact = new OpenApiContact
@@ -51,7 +55,18 @@ namespace HomepageDev
             });
 
             services.AddControllers();
-            services.AddMvcCore().AddRazorViewEngine();
+
+            services.AddSimpleInjector(Container, options => options.AddAspNetCore().AddControllerActivation());
+
+            InitializeContainer();
+        }
+
+        private void InitializeContainer()
+        {
+            Container.Register<IAppSettings, AppSettings>(Lifestyle.Singleton);
+            Container.RegisterInitializer<IAppSettings>(appSettings => {
+                appSettings.BingApiKey = Configuration.GetValue<string>("AppSettings:Geocode:Bing:ApiKey");
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -64,7 +79,7 @@ namespace HomepageDev
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint($"/swagger/{apiVersion1}/swagger.json", "mfcallahan-dev API");
+                c.SwaggerEndpoint($"/swagger/{ApiVersion}/swagger.json", "mfcallahan-dev API");
                 c.RoutePrefix = string.Empty;
             });
 
