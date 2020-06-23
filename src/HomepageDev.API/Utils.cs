@@ -23,6 +23,7 @@ namespace HomepageDev.API
                 throw new ArgumentOutOfRangeException($"minValue ({minValue}) cannot be greater than maxValue ({maxValue}).");
             }
 
+            // use maxValue + 1 becaue Rand.Next() range of returned value includes minValue but not maxValue
             return Rand.Next(minValue, maxValue + 1);
         }
     }

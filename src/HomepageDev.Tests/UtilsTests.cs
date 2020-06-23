@@ -10,12 +10,22 @@ namespace HomepageDev.Tests
     public class UtilsTests
     {
         [Test]
-        [TestCase(10)]
+        [TestCase(100)]
         public void GenerateRandomString_Should_Return_Random_String_With_Correct_Length(int length)
         {
             string randomString = Utils.GenerateRandomString(length);
 
             Assert.That(randomString.Length == length);
+        }
+
+        [Test]
+        [TestCase(100)]
+        public void GenerateRandomString_Calls_Should_Return_Different_Strings(int length)
+        {
+            string randomString1 = Utils.GenerateRandomString(length);
+            string randomString2 = Utils.GenerateRandomString(length);
+
+            Assert.That(!string.Equals(randomString1, randomString2));
         }
 
         [Test]
