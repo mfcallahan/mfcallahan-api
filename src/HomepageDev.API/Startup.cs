@@ -1,3 +1,4 @@
+using HomepageDev.API;
 using HomepageDev.API.Interfaces;
 using HomepageDev.API.Models;
 using Microsoft.AspNetCore.Builder;
@@ -67,6 +68,9 @@ namespace HomepageDev
             Container.RegisterInitializer<IAppSettings>(appSettings => {
                 appSettings.BingApiKey = Configuration.GetValue<string>("AppSettings:Geocode:Bing:ApiKey");
             });
+
+            Container.Register<IHttpClientWrapper, HttpClientWrapper>(Lifestyle.Singleton);
+            Container.Register<IBingGeocoder, BingGeocoder>(Lifestyle.Singleton);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
