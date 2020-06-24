@@ -1,7 +1,9 @@
-﻿namespace HomepageDev.API.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace HomepageDev.API.Interfaces
 {
     public interface IBingGeocoder
     {
-        void GeocodeAddress(string address, string city, string state, string zipCode);
+        Task GeocodeAddress(string address, string city, string state, string zipCode);
     }
 }

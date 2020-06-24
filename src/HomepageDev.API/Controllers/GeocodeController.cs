@@ -8,12 +8,10 @@ namespace HomepageDev.API.Controllers
     [ApiController]
     public class GeocodeController : ControllerBase
     {
-        private IAppSettings AppSettings { get; }
         private IBingGeocoder BingGeocoder { get; }
 
-        public GeocodeController(IAppSettings appSettings, IBingGeocoder bingGeocoder)
+        public GeocodeController(IBingGeocoder bingGeocoder)
         {
-            AppSettings = appSettings;
             BingGeocoder = bingGeocoder;
         }
 
@@ -27,8 +25,8 @@ namespace HomepageDev.API.Controllers
         [Route("SingleAddress")]
         public ObjectResult SingleAddress(string address, string city, string state, string zipCode)
         {
-            throw new NotImplementedException();
             BingGeocoder.GeocodeAddress(address, city, state, zipCode);
+            throw new NotImplementedException();
         }
     }
 }
