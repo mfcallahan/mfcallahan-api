@@ -20,7 +20,6 @@ namespace HomepageDev
     {
         public IConfiguration Configuration { get; }
         private readonly string ApiVersion = "v1";
-        private readonly Container Container = new Container();
 
         public Startup(IConfiguration configuration)
         {
@@ -57,10 +56,6 @@ namespace HomepageDev
 
             services.AddControllers();
 
-            //services.AddSimpleInjector(Container, options => options.AddAspNetCore().AddControllerActivation());
-
-            //InitializeContainer();
-
             services.AddSingleton<IAppSettings>(new AppSettings {
                 BingApiRootUrl = Configuration.GetValue<string>("AppSettings:Geocode:Bing:ApiRootUrl"),
                 BingApiKey = Configuration.GetValue<string>("AppSettings:Geocode:Bing:ApiKey"),
@@ -68,19 +63,6 @@ namespace HomepageDev
             });
             services.AddSingleton<IHttpClientWrapper, HttpClientWrapper>();
             services.AddSingleton<IBingGeocoder, BingGeocoder>();
-        }
-
-        private void InitializeContainer()
-        {
-            Container.Register<IAppSettings, IAppSettings>(Lifestyle.Singleton);
-            Container.RegisterInitializer<IAppSettings>(appSettings => {
-                appSettings.BingApiRootUrl = Configuration.GetValue<string>("AppSettings:Geocode:Bing:ApiRootUrl");
-                appSettings.BingApiKey = Configuration.GetValue<string>("AppSettings:Geocode:Bing:ApiKey");
-                appSettings.BingGeocodeSingleAddressEndpoint = Configuration.GetValue<string>("AppSettings:Geocode:Bing:GeocodeSingleAddressEndpoint");
-            });
-
-            Container.Register<IHttpClientWrapper, HttpClientWrapper>(Lifestyle.Singleton);
-            Container.Register<IBingGeocoder, BingGeocoder>(Lifestyle.Singleton);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
