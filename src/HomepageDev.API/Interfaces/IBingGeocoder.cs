@@ -4,6 +4,7 @@ namespace HomepageDev.API.Interfaces
 {
     public interface IBingGeocoder
     {
-        Task GeocodeAddress(string address, string city, string state, string zipCode);
+        Task GeocodeAddressAsync(string address, string city, string stateProvince, string postalCode, string country);
+        Task GeocodeAddressBacthAsync();
     }
 }

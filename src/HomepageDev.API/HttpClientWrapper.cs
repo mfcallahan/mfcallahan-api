@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace HomepageDev.API
 {
-    public class HttpClientWrapper : IHttpClientWrapper, IDisposable
+    /// <summary>
+    /// A wrapper class for HttpClient to allow for easier mocking and unit testing of methods making HTTP requests.
+    /// </summary>
+    public sealed class HttpClientWrapper : IHttpClientWrapper, IDisposable
     {
         private HttpClient HttpClient;
-        private const int MaxHttpClientConnections = 10;
+        private const int MaxHttpClientConnections = 10; //TODO: set this in config file?
 
         public HttpClientWrapper()
         {
@@ -19,6 +22,11 @@ namespace HomepageDev.API
             ServicePointManager.DefaultConnectionLimit = MaxHttpClientConnections;
         }
 
+        /// <summary>
+        /// A wrapper method for HttpClient.GetAsync(); executes an HTTP GET request.
+        /// </summary>
+        /// <param name="uri">The full uniform resoure identifier (URI) of the API endpoint</param>
+        /// <returns>HttpResponseMessage</returns>
         public async Task<HttpResponseMessage> GetAsync(Uri uri)
         {
             return await HttpClient.GetAsync(uri).ConfigureAwait(false);

@@ -1,13 +1,13 @@
 using HomepageDev.API;
 using HomepageDev.API.Interfaces;
-using HomepageDev.API.Models;
+using HomepageDev.API.Models.Bing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using SimpleInjector;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -56,13 +56,10 @@ namespace HomepageDev
 
             services.AddControllers();
 
-            services.AddSingleton<IAppSettings>(new AppSettings {
-                BingApiRootUrl = Configuration.GetValue<string>("AppSettings:Geocode:Bing:ApiRootUrl"),
-                BingApiKey = Configuration.GetValue<string>("AppSettings:Geocode:Bing:ApiKey"),
-                BingGeocodeSingleAddressEndpoint = Configuration.GetValue<string>("AppSettings:Geocode:Bing:GeocodeSingleAddressEndpoint")
-            });
+            services.Configure<BingOptions>(options => Configuration.GetSection("AppSettings:GeocodeOptions:Bing").Bind(options));
+
             services.AddSingleton<IHttpClientWrapper, HttpClientWrapper>();
-            services.AddSingleton<IBingGeocoder, BingGeocoder>();
+            services.AddScoped<IBingGeocoder, BingGeocoder>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

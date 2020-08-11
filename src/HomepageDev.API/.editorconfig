@@ -11,7 +11,7 @@ indent_size = 2
 
 [*.cs]
 # CS1591: Missing XML comment for publicly visible type or member
-# Make this a suggestion as some classes such as DTO, Model classes may not need XML comments.
+# Make this a suggestion as some classes (ex: POCOs) and class members may not need XML comments.
 dotnet_diagnostic.CS1591.severity = suggestion
 
 [*Controller.cs]
