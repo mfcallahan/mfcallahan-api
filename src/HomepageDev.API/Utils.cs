@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace HomepageDev.API
 {
+    /// <summary>
+    /// Utils class
+    /// </summary>
     public static class Utils
     {
         private static readonly Random Rand = new Random();

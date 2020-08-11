@@ -30,7 +30,7 @@ namespace HomepageDev.Tests
 
         [Test]
         [TestCase(1, 1000)]
-        public void GenerateRandomInteger_Should_Return_Random_Integer_Between_Minimum_And_Maximum(int minValue, int maxValue)
+        public void GenerateRandomInteger_Should_Return_Random_Integer_Between_Minimum_And_Maximum_Inclusive(int minValue, int maxValue)
         {
             int randomInt = Utils.GenerateRandomInteger(minValue, maxValue);
 
