@@ -1,0 +1,21 @@
+# To learn more about .editorconfig see https://aka.ms/editorconfigdocs
+root = true
+
+# All files
+[*]
+indent_style = space
+
+# Xml files
+[*.xml]
+indent_size = 2
+
+[*.cs]
+# CS1591: Missing XML comment for publicly visible type or member
+# Make this a suggestion as some classes such as DTO, Model classes may not need XML comments.
+dotnet_diagnostic.CS1591.severity = suggestion
+
+[*Controller.cs]
+# CA1031: Do not catch general exception types
+# Make this a suggestion in Controller class methods as they can contain top level exception handling for general Exceptions.
+dotnet_diagnostic.CA1031.severity = suggestion
+
