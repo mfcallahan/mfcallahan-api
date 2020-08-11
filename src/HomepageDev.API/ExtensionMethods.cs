@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Specialized;
 
 namespace HomepageDev.API
 {
@@ -8,18 +8,16 @@ namespace HomepageDev.API
     public static class ExtensionMethods
     {
         /// <summary>
-        /// Add a key/value pair to an IDictionary&lt;TKey, TValue&gt; if the value is not null.
+        /// Add a name/value pair to a NameValueCollection if the value is not null.
         /// </summary>
-        /// <typeparam name="TKey">The type of the IDictionary key</typeparam>
-        /// <typeparam name="TValue">The type of the IDictionary value</typeparam>
-        /// <param name="dictionary">The IDictionary to which the key/value pair will be added if the value is not null</param>
-        /// <param name="key">IDictionary key</param>
-        /// <param name="value">IDictionary value</param>
-        public static void AddIfNotNull<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue value)
+        /// <param name="nameValueCollection">The NameValueCollection to which the name/value pair will be added if the value is not null</param>
+        /// <param name="name">The string name of the entry to add.</param>
+        /// <param name="value">The string key of the entry to add.</param>
+        public static void AddIfNotNull(this NameValueCollection nameValueCollection, string name, string value)
         {
             if (value != null)
             {
-                dictionary.Add(key, value);
+                nameValueCollection.Add(name, value);
             }
         }
     }
