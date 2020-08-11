@@ -3,7 +3,7 @@
 namespace HomepageDev.API
 {
     /// <summary>
-    /// Class to house custom extension methods created for this solution
+    /// Class to house custom extension methods created for this solution.
     /// </summary>
     public static class ExtensionMethods
     {

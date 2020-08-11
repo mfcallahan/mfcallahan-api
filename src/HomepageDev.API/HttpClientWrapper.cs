@@ -1,5 +1,6 @@
 ﻿using HomepageDev.API.Interfaces;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace HomepageDev.API
     /// <summary>
     /// A wrapper class for HttpClient to allow for easier mocking and unit testing of methods making HTTP requests.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public sealed class HttpClientWrapper : IHttpClientWrapper, IDisposable
     {
         private HttpClient HttpClient;
@@ -25,11 +27,20 @@ namespace HomepageDev.API
         /// <summary>
         /// A wrapper method for HttpClient.GetAsync(); executes an HTTP GET request.
         /// </summary>
-        /// <param name="uri">The full uniform resoure identifier (URI) of the API endpoint</param>
+        /// <param name="uri">The full uniform resoure identifier (URI) of the API endpoint including a query string</param>
         /// <returns>HttpResponseMessage</returns>
         public async Task<HttpResponseMessage> GetAsync(Uri uri)
         {
             return await HttpClient.GetAsync(uri).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// A wrapper method for HttpClient.GetAsync(); executes an HTTP POST request.
+        /// </summary>
+        /// <returns>HttpResponseMessage</returns>
+        public async Task<HttpResponseMessage> PostAsync()
+        {
+            throw new NotImplementedException();
         }
 
         public void Dispose()

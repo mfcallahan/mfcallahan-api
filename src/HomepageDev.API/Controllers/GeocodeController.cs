@@ -24,21 +24,47 @@ namespace HomepageDev.API.Controllers
         /// Geocode a single address.
         /// </summary>
         /// <remarks>
-        /// Not yet implemented.
+        /// Returns an object with the best matched output addresss and lat/lon coordinates for the input address. All parameters
+        /// are optional, but the request must have a value for at least one parameter.
         /// </remarks>
         [HttpGet]
         [Route("SingleAddress")]
-        public async Task<ObjectResult> SingleAddress(string address, string city, string stateProvince, string postalCode, string country)
+        public async Task<ObjectResult> SingleAddress(
+            int foo,
+            string address = null,
+            string city = null,
+            string stateProvince = null,
+            string postalCode = null,
+            string country = null
+        )
         {
+            var x = 1 / foo;
+            if (address == null && city == null && stateProvince == null && postalCode == null && country == null)
+            {
+                throw new ArgumentException("At least one parameter must have a value.");
+            }
             try
             {
-                await BingGeocoder.GeocodeAddressAsync(address, city, stateProvince, postalCode, country).ConfigureAwait(false);
-                throw new NotImplementedException();
+                return Ok(await BingGeocoder.GeocodeAddressAsync(address, city, stateProvince, postalCode, country).ConfigureAwait(false));
             }
             catch (Exception ex)
             {
+                return BadRequest("OMG Exception!");
                 return BadRequest(ex.Message);
             }
+        }
+
+        /// <summary>
+        /// Geocode a batch of addresses.
+        /// </summary>
+        /// <remarks>
+        /// Not yet implemented.
+        /// </remarks>
+        [HttpPost]
+        [Route("BatchAddress")]
+        public async Task<ObjectResult> BatchAddress()
+        {
+            throw new NotImplementedException();
         }
     }
 }

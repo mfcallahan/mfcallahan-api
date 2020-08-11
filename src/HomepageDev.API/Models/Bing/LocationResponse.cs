@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace HomepageDev.API.Models.Bing
 {
-    public class Example
+    public class LocationResponse
     {
         [JsonProperty("authenticationResultCode")]
         public string AuthenticationResultCode { get; set; }

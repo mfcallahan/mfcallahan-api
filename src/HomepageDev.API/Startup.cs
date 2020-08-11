@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Diagnostics.CodeAnalysis;
@@ -28,6 +27,7 @@ namespace HomepageDev
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //Configure Swagger documentation page
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddSwaggerGen(c =>
             {
@@ -56,8 +56,8 @@ namespace HomepageDev
 
             services.AddControllers();
 
+            //Configure dependencies to be injected
             services.Configure<BingOptions>(options => Configuration.GetSection("AppSettings:GeocodeOptions:Bing").Bind(options));
-
             services.AddSingleton<IHttpClientWrapper, HttpClientWrapper>();
             services.AddScoped<IBingGeocoder, BingGeocoder>();
         }

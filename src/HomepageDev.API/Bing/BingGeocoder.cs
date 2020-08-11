@@ -1,10 +1,11 @@
 ﻿using HomepageDev.API.Interfaces;
+using HomepageDev.API.Models.ApiResponses;
 using HomepageDev.API.Models.Bing;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -29,7 +30,13 @@ namespace HomepageDev.API
             BingOptions = bingOptions.Value;
         }
 
-        public async Task GeocodeAddressAsync(string address, string city, string stateProvince, string postalCode, string country)
+        public async Task<SingleAddressResponse> GeocodeAddressAsync(
+            string address,
+            string city,
+            string stateProvince,
+            string postalCode,
+            string country
+        )
         {
             Uri.TryCreate(new Uri(BingOptions.ApiRootUrl), BingOptions.GeocodeSingleAddressEndpoint, out Uri apiUri);
 
@@ -44,13 +51,28 @@ namespace HomepageDev.API
 
             uriBuilder.Query = requestParams.ToString();
 
-            HttpResponseMessage response = await HttpClientWrapper.GetAsync(uriBuilder.Uri).ConfigureAwait(false);
+            HttpResponseMessage responseMessage = await HttpClientWrapper.GetAsync(uriBuilder.Uri).ConfigureAwait(false);
+
+            var responseBody = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+            var responseObject = JsonConvert.DeserializeObject<LocationResponse>(responseBody);
+
+            return new SingleAddressResponse()
+            {
+                OutputFormattedAddress = responseObject.ResourceSets[0].Resources[0].Address.FormattedAddress,
+                Latitude = responseObject.ResourceSets[0].Resources[0].GeocodePoints[0].Coordinates[0],
+                Longitude = responseObject.ResourceSets[0].Resources[0].GeocodePoints[0].Coordinates[1],
+            };
         }
 
         public async Task GeocodeAddressBacthAsync()
         {
             throw new NotImplementedException();
         }
+
+        //private SingleAddressResponse Foo()
+        //{
+
+        //}
 
         /*
          * Per Bing documentation:
