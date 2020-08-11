@@ -4,12 +4,16 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace HomepageDev.API.Controllers
 {
+    /// <summary>
+    /// This class contains simple utility API methods to demonstrate implementation of a .NET Core Controller class using
+    /// attribute routing and Swagger API documentation configuration.
+    /// </summary>
     [ExcludeFromCodeCoverage]
     [ApiController]
     [Route("api/[controller]")]
     public class UtilsController : ControllerBase
     {
-        private const int RandomStringMaxLength = 100;
+        private const int RandomStringMaxLength = 100; //TODO: set this in config file?
 
         /// <summary>
         /// Verify server is responding.
@@ -26,7 +30,7 @@ namespace HomepageDev.API.Controllers
         }
 
         /// <summary>
-        /// Generate a random string containing letters A-Z (upper and lower case) and numbers 0-9
+        /// Generate a random string containing letters A-Z (upper and lower case) and numbers 0-9.
         /// </summary>
         /// <remarks>
         /// Returns a random string of the specified length.
@@ -40,7 +44,7 @@ namespace HomepageDev.API.Controllers
             {
                 if (length <= 0 || length > RandomStringMaxLength)
                 {
-                    return BadRequest($"Value of parameter 'length' must be greater than 0 and less than or equal to {RandomStringMaxLength}.");
+                    return BadRequest($"Value of parameter 'length' ({length}) must be greater than 0 and less than or equal to {RandomStringMaxLength}.");
                 }
 
                 return Ok(Utils.GenerateRandomString(length));
@@ -55,7 +59,7 @@ namespace HomepageDev.API.Controllers
         /// Generate a random integer.
         /// </summary>
         /// <remarks>
-        /// Returns  random integer with a value between the specified lower and upper bounds.
+        /// Returns a random integer with a value between the specified inclusive lower and upper bounds.
         /// </remarks>
         /// <param name="minValue">Lower bound</param>
         /// <param name="maxValue">Upper bound</param>

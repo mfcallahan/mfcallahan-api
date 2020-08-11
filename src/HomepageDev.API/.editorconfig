@@ -1,0 +1,19 @@
+# To learn more about .editorconfig see https://aka.ms/editorconfigdocs
+
+[*.xml]
+indent_size = 2
+
+[*.cs]
+# CS1591: Missing XML comment for publicly visible type or member
+# Make this a suggestion as some classes (ex: POCOs) and class members may not need XML comments.
+dotnet_diagnostic.CS1591.severity = suggestion
+
+# CA1303: Method passes a literal string as parameter 'message' of a call to
+# 'ArgumentException.ArgumentException(string? message)'. Retrieve the string(s) from a resource table instead.
+# Make this a suggestion so Exception messages do not need to be stored and retreived from a resource table.
+dotnet_diagnostic.CA1303.severity = suggestion
+
+[*Controller.cs]
+# CA1031: Do not catch general exception types
+# Make this a suggestion in Controller class methods as they can contain top level exception handling for general Exceptions.
+dotnet_diagnostic.CA1031.severity = suggestion

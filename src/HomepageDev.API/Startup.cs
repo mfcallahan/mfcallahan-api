@@ -1,3 +1,6 @@
+using HomepageDev.API;
+using HomepageDev.API.Interfaces;
+using HomepageDev.API.Models.Bing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +18,7 @@ namespace HomepageDev
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        private readonly string apiVersion1 = "v1";
+        private readonly string ApiVersion = "v1";
 
         public Startup(IConfiguration configuration)
         {
@@ -24,12 +27,13 @@ namespace HomepageDev
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //Configure Swagger documentation page
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc(apiVersion1, new OpenApiInfo
+                c.SwaggerDoc(ApiVersion, new OpenApiInfo
                 {
-                    Version = apiVersion1,
+                    Version = ApiVersion,
                     Title = "mfcallahan-dev API",
                     Description = "A demo API built with ASP.NET Core",
                     Contact = new OpenApiContact
@@ -51,7 +55,11 @@ namespace HomepageDev
             });
 
             services.AddControllers();
-            services.AddMvcCore().AddRazorViewEngine();
+
+            //Configure dependencies to be injected
+            services.Configure<BingOptions>(options => Configuration.GetSection("AppSettings:GeocodeOptions:Bing").Bind(options));
+            services.AddSingleton<IHttpClientWrapper, HttpClientWrapper>();
+            services.AddScoped<IBingGeocoder, BingGeocoder>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -64,7 +72,7 @@ namespace HomepageDev
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint($"/swagger/{apiVersion1}/swagger.json", "mfcallahan-dev API");
+                c.SwaggerEndpoint($"/swagger/{ApiVersion}/swagger.json", "mfcallahan-dev API");
                 c.RoutePrefix = string.Empty;
             });
 
