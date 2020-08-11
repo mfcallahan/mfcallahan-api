@@ -17,7 +17,7 @@ namespace HomepageDev.API
         {
             if (value != null)
             {
-                nameValueCollection.Add(name, value);
+                nameValueCollection?.Add(name, value);
             }
         }
     }

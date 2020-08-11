@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -30,15 +31,24 @@ namespace HomepageDev.API
             BingOptions = bingOptions.Value;
         }
 
-        public async Task<SingleAddressResponse> GeocodeAddressAsync(
-            string address,
-            string city,
-            string stateProvince,
-            string postalCode,
-            string country
+        /// <summary>
+        /// Geocodes an address using the Bing Maps Locations API
+        /// </summary>
+        /// <param name="address">Input address</param>
+        /// <param name="city">Input city</param>
+        /// <param name="stateProvince">Input state or province</param>
+        /// <param name="postalCode">Input postal code</param>
+        /// <param name="country">Input country</param>
+        /// <returns>List&lt;SingleAddressResponse&gt;</returns>
+        public async Task<List<SingleAddressGeocodeResponse>> GeocodeAddressAsync(
+            string address = null,
+            string city = null,
+            string stateProvince = null,
+            string postalCode = null,
+            string country = null
         )
         {
-            Uri.TryCreate(new Uri(BingOptions.ApiRootUrl), BingOptions.GeocodeSingleAddressEndpoint, out Uri apiUri);
+            _ = Uri.TryCreate(new Uri(BingOptions.ApiRootUrl), BingOptions.GeocodeSingleAddressEndpoint, out Uri apiUri);
 
             var uriBuilder = new UriBuilder(apiUri);
 
@@ -56,12 +66,7 @@ namespace HomepageDev.API
             var responseBody = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
             var responseObject = JsonConvert.DeserializeObject<LocationResponse>(responseBody);
 
-            return new SingleAddressResponse()
-            {
-                OutputFormattedAddress = responseObject.ResourceSets[0].Resources[0].Address.FormattedAddress,
-                Latitude = responseObject.ResourceSets[0].Resources[0].GeocodePoints[0].Coordinates[0],
-                Longitude = responseObject.ResourceSets[0].Resources[0].GeocodePoints[0].Coordinates[1],
-            };
+            return TranslateBingLocationResponse(responseObject);
         }
 
         public async Task GeocodeAddressBacthAsync()
@@ -69,10 +74,27 @@ namespace HomepageDev.API
             throw new NotImplementedException();
         }
 
-        //private SingleAddressResponse Foo()
-        //{
+        private static List<SingleAddressGeocodeResponse> TranslateBingLocationResponse(LocationResponse response)
+        {
+            var singleAddressResponses = new List<SingleAddressGeocodeResponse>();
 
-        //}
+            foreach (var resoure in response.ResourceSets[0].Resources)
+            {
+                singleAddressResponses.Add(
+                    new SingleAddressGeocodeResponse()
+                    {
+                        OutputAddress = resoure.Address.FormattedAddress,
+                        Confidence = resoure.Confidence,
+                        MatchType = resoure.Point.Type,
+                        //Coordinates are returned as an array: latitude at index 0, longitue at index 1
+                        Latitude = resoure.Point.Coordinates[0],
+                        Longitude = resoure.Point.Coordinates[1]
+                    }
+                );
+            }
+
+            return singleAddressResponses;
+        }
 
         /*
          * Per Bing documentation:

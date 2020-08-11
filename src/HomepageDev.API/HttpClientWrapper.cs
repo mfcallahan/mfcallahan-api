@@ -25,7 +25,7 @@ namespace HomepageDev.API
         }
 
         /// <summary>
-        /// A wrapper method for HttpClient.GetAsync(); executes an HTTP GET request.
+        /// A wrapper method for HttpClient.GetAsync(); executes HTTP GET request.
         /// </summary>
         /// <param name="uri">The full uniform resoure identifier (URI) of the API endpoint including a query string</param>
         /// <returns>HttpResponseMessage</returns>
@@ -35,7 +35,7 @@ namespace HomepageDev.API
         }
 
         /// <summary>
-        /// A wrapper method for HttpClient.GetAsync(); executes an HTTP POST request.
+        /// A wrapper method for HttpClient.GetAsync(); executes HTTP POST request.
         /// </summary>
         /// <returns>HttpResponseMessage</returns>
         public async Task<HttpResponseMessage> PostAsync()

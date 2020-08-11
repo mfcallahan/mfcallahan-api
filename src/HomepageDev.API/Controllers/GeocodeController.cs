@@ -24,13 +24,13 @@ namespace HomepageDev.API.Controllers
         /// Geocode a single address.
         /// </summary>
         /// <remarks>
-        /// Returns an object with the best matched output addresss and lat/lon coordinates for the input address. All parameters
-        /// are optional, but the request must have a value for at least one parameter.
+        /// Returns an array of one or more objects containing the best matched output addresss, the match confidence, the match
+        /// type, and lat/lon coordinates for the input address. All parameters are optional, but the request must have a
+        /// value for at least one parameter.
         /// </remarks>
         [HttpGet]
         [Route("SingleAddress")]
         public async Task<ObjectResult> SingleAddress(
-            int foo,
             string address = null,
             string city = null,
             string stateProvince = null,
@@ -38,7 +38,6 @@ namespace HomepageDev.API.Controllers
             string country = null
         )
         {
-            var x = 1 / foo;
             if (address == null && city == null && stateProvince == null && postalCode == null && country == null)
             {
                 throw new ArgumentException("At least one parameter must have a value.");
@@ -49,7 +48,6 @@ namespace HomepageDev.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest("OMG Exception!");
                 return BadRequest(ex.Message);
             }
         }
