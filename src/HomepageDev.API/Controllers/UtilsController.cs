@@ -3,6 +3,7 @@ using HomepageDev.API.Models.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 
 namespace HomepageDev.API.Controllers
@@ -18,6 +19,7 @@ namespace HomepageDev.API.Controllers
     {
         private readonly AppOptions AppOptions;
         private const int RandomStringMaxLength = 100; // TODO: set this in config file?
+        private const int MaxWaitTimeSeconds = 10; // TODO: set this in config file?
 
         public UtilsController(IOptions<AppOptions> appOptions)
         {
@@ -54,7 +56,7 @@ namespace HomepageDev.API.Controllers
         {
             if (length <= 0 || length > RandomStringMaxLength)
             {
-                return BadRequest($"Value of parameter 'length' ({length}) must be greater than 0 and less than or equal to {RandomStringMaxLength}.");
+                return BadRequest($"Value of parameter {nameof(length)} ({length}) must be greater than 0 and less than or equal to {RandomStringMaxLength}.");
             }
 
             return Ok(Utils.GenerateRandomString(length));
@@ -75,6 +77,36 @@ namespace HomepageDev.API.Controllers
         public ObjectResult RandomInt(int minValue, int maxValue)
         {
             return Ok(Utils.GenerateRandomInteger(minValue, maxValue));
+        }
+
+        /// <summary>
+        /// Simulate a long-running API request by waiting a sepcified number of seconds before returning a response.
+        /// </summary>
+        /// <remarks>
+        /// Returns an object with a messgae indicating how long the server waited.
+        /// </remarks>
+        /// <param name="seconds">Wait time, in seconds.</param>
+        /// <response code="200">The server waiting the specified number of seconds before returning a response.</response>
+        [HttpGet]
+        [Route("DelayedResponse")]
+        public ObjectResult DelayedResponse(int seconds)
+        {
+            if (seconds < 0 || seconds > MaxWaitTimeSeconds)
+            {
+                return BadRequest($"Value of parameter {nameof(seconds)} ({seconds}) must be greater than or equal 0 and less than or equal to {MaxWaitTimeSeconds}.");
+            }
+
+            var s = new Stopwatch();
+            s.Start();
+
+            Utils.WaitNSeconds(seconds);
+
+            s.Stop();
+
+            return Ok(new HelloResponse(
+                AppOptions.Configuration,
+                $"Hello, the server at {Request.Host} waited {(decimal)s.ElapsedMilliseconds / (decimal)1000} seconds beore responding."
+            ));
         }
     }
 }
