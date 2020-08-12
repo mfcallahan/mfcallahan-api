@@ -1,7 +1,6 @@
-﻿using HomepageDev.API;
-using HomepageDev.API.Interfaces;
+﻿using HomepageDev.API.Interfaces;
 using HomepageDev.API.Models.ApiResponses;
-using HomepageDev.API.Models.Bing;
+using HomepageDev.API.Models.Options;
 using Microsoft.Extensions.Options;
 using Moq;
 using NUnit.Framework;
@@ -11,7 +10,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace HomepageDev.Tests.Bing
+namespace HomepageDev.API.Tests.Bing
 {
     [TestFixture]
     [ExcludeFromCodeCoverage]
@@ -27,7 +26,7 @@ namespace HomepageDev.Tests.Bing
             string country
         )
         {
-            //Arrange
+            // Arrange
             var mockHttpClientWrapper = new Mock<IHttpClientWrapper>();
 
             using var mockHttpResponseMessage = new HttpResponseMessage()
@@ -47,10 +46,10 @@ namespace HomepageDev.Tests.Bing
 
             var bingGeocoder = new BingGeocoder(mockHttpClientWrapper.Object, bingOptions);
 
-            //Act
+            // Act
             var result = await bingGeocoder.GeocodeAddressAsync(address, city, stateProvince, postalCode, country).ConfigureAwait(false);
 
-            //Assert
+            // Assert
             Assert.That(result is List<SingleAddressGeocodeResponse>);
             Assert.That(result.Count == expectedOutputAddresses);
         }

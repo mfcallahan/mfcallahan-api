@@ -4,6 +4,8 @@
 # App settings files that may contain sensitive information
 appsettings.json
 appsettings.Development.json
+appsettings.Debug.json
+appsettings.Release.json
 
 # User-specific files
 *.suo

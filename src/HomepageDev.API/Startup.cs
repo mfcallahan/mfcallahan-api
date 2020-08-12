@@ -1,6 +1,6 @@
 using HomepageDev.API;
 using HomepageDev.API.Interfaces;
-using HomepageDev.API.Models.Bing;
+using HomepageDev.API.Models.Options;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,7 +27,7 @@ namespace HomepageDev
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //Configure Swagger documentation page
+            // Configure Swagger documentation page
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddSwaggerGen(c =>
             {
@@ -56,8 +56,12 @@ namespace HomepageDev
 
             services.AddControllers();
 
-            //Configure dependencies to be injected
+            // Use the Options Pattern described here to provide strongly typed access to groups of related settings in appsettings.json:
+            // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1
+            services.Configure<AppOptions>(options => Configuration.GetSection("AppSettings:AppOptions").Bind(options));
             services.Configure<BingOptions>(options => Configuration.GetSection("AppSettings:GeocodeOptions:Bing").Bind(options));
+
+            // Configure dependencies to be injected
             services.AddSingleton<IHttpClientWrapper, HttpClientWrapper>();
             services.AddScoped<IBingGeocoder, BingGeocoder>();
         }

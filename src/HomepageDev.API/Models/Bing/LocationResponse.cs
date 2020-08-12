@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace HomepageDev.API.Models.Bing
 {
+    [ExcludeFromCodeCoverage]
     public class LocationResponse
     {
         [JsonProperty("authenticationResultCode")]

@@ -5,14 +5,14 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomepageDev.API", "HomepageDev.API\HomepageDev.API.csproj", "{9F000EB0-9FB3-4583-8AAC-33A30E7C99F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomepageDev.Tests", "HomepageDev.Tests\HomepageDev.Tests.csproj", "{78FBC086-F76F-4E6C-8011-6CBA16884EF2}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{041267AA-7C42-40D1-B4B0-6D4D6C804420}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomepageDev.API.Tests", "HomepageDev.API.Tests\HomepageDev.API.Tests.csproj", "{397F13A7-D4B6-486F-9DB8-CBC8D4EE2B54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +24,10 @@ Global
 		{9F000EB0-9FB3-4583-8AAC-33A30E7C99F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F000EB0-9FB3-4583-8AAC-33A30E7C99F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F000EB0-9FB3-4583-8AAC-33A30E7C99F0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78FBC086-F76F-4E6C-8011-6CBA16884EF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78FBC086-F76F-4E6C-8011-6CBA16884EF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78FBC086-F76F-4E6C-8011-6CBA16884EF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78FBC086-F76F-4E6C-8011-6CBA16884EF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{397F13A7-D4B6-486F-9DB8-CBC8D4EE2B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{397F13A7-D4B6-486F-9DB8-CBC8D4EE2B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{397F13A7-D4B6-486F-9DB8-CBC8D4EE2B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{397F13A7-D4B6-486F-9DB8-CBC8D4EE2B54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
