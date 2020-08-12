@@ -1,6 +1,9 @@
 ﻿using Newtonsoft.Json;
+using System.Diagnostics.CodeAnalysis;
+
 namespace HomepageDev.API.Models.Bing
 {
+    [ExcludeFromCodeCoverage]
     public class Address
     {
         [JsonProperty("countryRegion")]

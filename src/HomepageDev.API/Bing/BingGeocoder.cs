@@ -1,8 +1,7 @@
 ﻿using HomepageDev.API.Interfaces;
 using HomepageDev.API.Models.ApiResponses;
+using HomepageDev.API.Models.Options;
 using HomepageDev.API.Models.Bing;
-using Microsoft.AspNetCore.Razor.TagHelpers;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
@@ -26,9 +25,7 @@ namespace HomepageDev.API
         public BingGeocoder(IHttpClientWrapper httpClientWrapper, IOptions<BingOptions> bingOptions)
         {
             HttpClientWrapper = httpClientWrapper;
-
-            _ = bingOptions ?? throw new ArgumentException($"{nameof(bingOptions)} cannot be null.");
-            BingOptions = bingOptions.Value;
+            BingOptions = bingOptions?.Value;
         }
 
         /// <summary>
@@ -40,7 +37,7 @@ namespace HomepageDev.API
         /// <param name="postalCode">Input postal code</param>
         /// <param name="country">Input country</param>
         /// <returns>List&lt;SingleAddressResponse&gt;</returns>
-        public async Task<List<SingleAddressGeocodeResponse>> GeocodeAddressAsync(
+        public async Task<IList<SingleAddressGeocodeResponse>> GeocodeAddressAsync(
             string address = null,
             string city = null,
             string stateProvince = null,
