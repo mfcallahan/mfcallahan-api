@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using Utils = HomepageDev.API.Utils;
 
-namespace HomepageDev.Tests
+namespace HomepageDev.API.Tests
 {
     [TestFixture]
     [ExcludeFromCodeCoverage]
