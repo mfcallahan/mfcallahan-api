@@ -83,10 +83,10 @@ namespace HomepageDev.API.Controllers
         /// Simulate a long-running API request by waiting a sepcified number of seconds before returning a response.
         /// </summary>
         /// <remarks>
-        /// Returns an object with a messgae indicating how long the server waited.
+        /// Returns a string containing a messgae indicating how long the server waited.
         /// </remarks>
         /// <param name="seconds">Wait time, in seconds.</param>
-        /// <response code="200">The server waiting the specified number of seconds before returning a response.</response>
+        /// <response code="200">The server waited the specified number of seconds before returning a response.</response>
         [HttpGet]
         [Route("DelayedResponse")]
         public ObjectResult DelayedResponse(int seconds)
@@ -103,10 +103,7 @@ namespace HomepageDev.API.Controllers
 
             s.Stop();
 
-            return Ok(new HelloResponse(
-                AppOptions.Configuration,
-                $"Hello, the server at {Request.Host} waited {(decimal)s.ElapsedMilliseconds / (decimal)1000} seconds beore responding."
-            ));
+            return Ok($"Hello, the server at {Request.Host} waited {(decimal)s.ElapsedMilliseconds / (decimal)1000} seconds beore responding.");
         }
     }
 }
