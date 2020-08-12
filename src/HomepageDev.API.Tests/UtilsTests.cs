@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Diagnostics.CodeAnalysis;
-using Utils = HomepageDev.API.Utils;
 
 namespace HomepageDev.API.Tests
 {
@@ -54,6 +53,18 @@ namespace HomepageDev.API.Tests
             //Act
             //Assert
             Assert.That(testDelegate, Throws.TypeOf<ArgumentOutOfRangeException>());
+        }
+
+        [Test]
+        [TestCase(100, 100)]
+        public void GenerateRandomInteger_MinValue_And_MaxValue_Params_Should_Be_Inclusive(int minValue, int maxValue)
+        {
+            //Act
+            int randomInt = Utils.GenerateRandomInteger(minValue, maxValue);
+
+            //Assert
+            Assert.That(randomInt == minValue);
+            Assert.That(randomInt == maxValue);
         }
     }
 }

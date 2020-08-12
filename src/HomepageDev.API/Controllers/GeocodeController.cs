@@ -40,16 +40,10 @@ namespace HomepageDev.API.Controllers
         {
             if (address == null && city == null && stateProvince == null && postalCode == null && country == null)
             {
-                throw new ArgumentException("At least one parameter must have a value.");
+                return BadRequest("At least one parameter must have a value.");
             }
-            try
-            {
-                return Ok(await BingGeocoder.GeocodeAddressAsync(address, city, stateProvince, postalCode, country).ConfigureAwait(false));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            return Ok(await BingGeocoder.GeocodeAddressAsync(address, city, stateProvince, postalCode, country).ConfigureAwait(false));
         }
 
         /// <summary>
