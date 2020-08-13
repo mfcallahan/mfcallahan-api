@@ -1,7 +1,7 @@
 ﻿using HomepageDev.API.Interfaces;
-using HomepageDev.API.Models.ApiResponses;
-using HomepageDev.API.Models.Options;
-using HomepageDev.API.Models.Bing;
+using HomepageDev.Models.ApiResponses;
+using HomepageDev.Models.Options;
+using HomepageDev.Models.Bing;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;

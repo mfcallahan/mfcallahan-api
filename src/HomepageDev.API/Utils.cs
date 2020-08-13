@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 
 namespace HomepageDev.API
 {
@@ -36,11 +37,21 @@ namespace HomepageDev.API
         {
             if (minValue > maxValue)
             {
-                throw new ArgumentOutOfRangeException($"minValue ({minValue}) cannot be greater than maxValue ({maxValue}).");
+                throw new ArgumentOutOfRangeException($"Value of parameter {nameof(minValue)} ({minValue}) cannot be greater than value of parameter {nameof(maxValue)} ({maxValue}).");
             }
 
             // use maxValue + 1 becaue Rand.Next() range of returned value includes minValue but not maxValue
             return Rand.Next(minValue, maxValue + 1);
+        }
+
+        /// <summary>
+        /// Wait a specified number of seconds before returning from the method.
+        /// </summary>
+        /// <param name="n">Wait time in seconds</param>
+        /// <returns>void</returns>
+        public static void WaitNSeconds(int n)
+        {
+            Thread.Sleep(n * 1000);
         }
     }
 }

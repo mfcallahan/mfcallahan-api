@@ -3,7 +3,7 @@ using NUnit.Framework;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections.Specialized;
 
-namespace HomepageDev.API.Tests
+namespace HomepageDev.Tests
 {
     [TestFixture]
     [ExcludeFromCodeCoverage]

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace HomepageDev.API.Models.Options
+namespace HomepageDev.Models.Options
 {
     [ExcludeFromCodeCoverage]
     public class BingOptions

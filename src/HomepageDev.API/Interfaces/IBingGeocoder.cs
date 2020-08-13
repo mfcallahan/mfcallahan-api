@@ -1,4 +1,4 @@
-﻿using HomepageDev.API.Models.ApiResponses;
+﻿using HomepageDev.Models.ApiResponses;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

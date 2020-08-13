@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace HomepageDev.API.Models.ApiResponses
+namespace HomepageDev.Models.ApiResponses
 {
     [ExcludeFromCodeCoverage]
     public class SingleAddressGeocodeResponse

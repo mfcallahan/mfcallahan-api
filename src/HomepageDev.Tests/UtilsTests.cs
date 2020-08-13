@@ -1,8 +1,9 @@
-﻿using NUnit.Framework;
+﻿using HomepageDev.API;
+using NUnit.Framework;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace HomepageDev.API.Tests
+namespace HomepageDev.Tests
 {
     [TestFixture]
     [ExcludeFromCodeCoverage]

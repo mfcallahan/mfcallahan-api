@@ -1,6 +1,6 @@
 using HomepageDev.API;
 using HomepageDev.API.Interfaces;
-using HomepageDev.API.Models.Options;
+using HomepageDev.Models.Options;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
