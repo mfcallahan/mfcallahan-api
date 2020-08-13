@@ -1,4 +1,4 @@
-﻿namespace HomepageDev.API.Models.Options
+﻿namespace HomepageDev.Models.Options
 {
     public class AppOptions
     {

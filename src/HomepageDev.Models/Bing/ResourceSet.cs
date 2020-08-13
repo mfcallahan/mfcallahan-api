@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace HomepageDev.API.Models.Bing
+namespace HomepageDev.Models.Bing
 {
     [ExcludeFromCodeCoverage]
     public class ResourceSet

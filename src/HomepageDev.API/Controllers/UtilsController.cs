@@ -1,5 +1,5 @@
-﻿using HomepageDev.API.Models.ApiResponses;
-using HomepageDev.API.Models.Options;
+﻿using HomepageDev.Models.ApiResponses;
+using HomepageDev.Models.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System;

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Diagnostics.CodeAnalysis;
 
-namespace HomepageDev.API.Models.Bing
+namespace HomepageDev.Models.Bing
 {
     [ExcludeFromCodeCoverage]
     public class Address

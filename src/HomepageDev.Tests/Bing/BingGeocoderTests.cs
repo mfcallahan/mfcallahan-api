@@ -1,6 +1,7 @@
-﻿using HomepageDev.API.Interfaces;
-using HomepageDev.API.Models.ApiResponses;
-using HomepageDev.API.Models.Options;
+﻿using HomepageDev.API;
+using HomepageDev.API.Interfaces;
+using HomepageDev.Models.ApiResponses;
+using HomepageDev.Models.Options;
 using Microsoft.Extensions.Options;
 using Moq;
 using NUnit.Framework;
@@ -10,7 +11,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace HomepageDev.API.Tests.Bing
+namespace HomepageDev.Tests.Bing
 {
     [TestFixture]
     [ExcludeFromCodeCoverage]

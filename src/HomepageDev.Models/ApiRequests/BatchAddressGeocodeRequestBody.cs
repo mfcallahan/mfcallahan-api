@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace HomepageDev.API.Models.ApiRequests
+namespace HomepageDev.Models.ApiRequests
 {
     [ExcludeFromCodeCoverage]
     public class BatchAddressGeocodeRequestBody
