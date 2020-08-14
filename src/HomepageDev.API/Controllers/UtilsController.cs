@@ -1,4 +1,5 @@
-﻿using HomepageDev.Models.ApiResponses;
+﻿using HomepageDev.API.Utils;
+using HomepageDev.Models.ApiResponses;
 using HomepageDev.Models.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -18,8 +19,8 @@ namespace HomepageDev.API.Controllers
     public class UtilsController : ControllerBase
     {
         private readonly AppOptions AppOptions;
-        private const int RandomStringMaxLength = 100; // TODO: set this in config file?
-        private const int MaxWaitTimeSeconds = 10; // TODO: set this in config file?
+        private const int RandomStringMaxLength = 100;
+        private const int DelayedResponseMaxWaitTimeSeconds = 10;
 
         public UtilsController(IOptions<AppOptions> appOptions)
         {
@@ -38,7 +39,22 @@ namespace HomepageDev.API.Controllers
         [Route("Hello")]
         public ObjectResult Hello()
         {
-            return Ok(new HelloResponse(AppOptions.Configuration, $"Hello, the server at {Request.Host} is responding."));
+            return Ok(new HelloResponse(AppOptions.Environment, $"Hello, the server at {Request.Host} is responding."));
+        }
+
+        /// <summary>
+        /// Throw an InvalidOperationException to verify error handling is working correctly in each environment.
+        /// </summary>
+        /// <remarks>
+        /// Should return the correct error response as configured for Development and Production environments.
+        /// </remarks>
+        /// <response code="500">An Exception was purposely thrown.</response>
+        [HttpGet]
+        [HttpPost]
+        [Route("ThrowException")]
+        public void ThrowException()
+        {
+            throw new InvalidOperationException("This Exception was purposely thrown.");
         }
 
         /// <summary>
@@ -59,7 +75,7 @@ namespace HomepageDev.API.Controllers
                 return BadRequest($"Value of parameter {nameof(length)} ({length}) must be greater than 0 and less than or equal to {RandomStringMaxLength}.");
             }
 
-            return Ok(Utils.GenerateRandomString(length));
+            return Ok(Utilities.GenerateRandomString(length));
         }
 
         /// <summary>
@@ -76,7 +92,7 @@ namespace HomepageDev.API.Controllers
         [Route("RandomInt")]
         public ObjectResult RandomInt(int minValue, int maxValue)
         {
-            return Ok(Utils.GenerateRandomInteger(minValue, maxValue));
+            return Ok(Utilities.GenerateRandomInteger(minValue, maxValue));
         }
 
         /// <summary>
@@ -91,15 +107,15 @@ namespace HomepageDev.API.Controllers
         [Route("DelayedResponse")]
         public ObjectResult DelayedResponse(int seconds)
         {
-            if (seconds < 0 || seconds > MaxWaitTimeSeconds)
+            if (seconds < 0 || seconds > DelayedResponseMaxWaitTimeSeconds)
             {
-                return BadRequest($"Value of parameter {nameof(seconds)} ({seconds}) must be greater than or equal 0 and less than or equal to {MaxWaitTimeSeconds}.");
+                return BadRequest($"Value of parameter {nameof(seconds)} ({seconds}) must be greater than or equal 0 and less than or equal to {DelayedResponseMaxWaitTimeSeconds}.");
             }
 
             var s = new Stopwatch();
             s.Start();
 
-            Utils.WaitNSeconds(seconds);
+            Utilities.WaitNSeconds(seconds);
 
             s.Stop();
 

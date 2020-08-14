@@ -72,6 +72,10 @@ namespace HomepageDev
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/error");
+            }
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>

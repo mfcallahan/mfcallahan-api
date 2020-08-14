@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Threading;
 
-namespace HomepageDev.API
+namespace HomepageDev.API.Utils
 {
     /// <summary>
-    /// Utils class to demonstrate simple utility methods that can be exposed via the UtilsController API endpoints.
+    /// Utilitiy class to demonstrate simple methods that can be exposed via the UtilsController API endpoints.
     /// </summary>
-    public static class Utils
+    public static class Utilities
     {
         private static readonly Random Rand = new Random();
 
@@ -15,7 +15,7 @@ namespace HomepageDev.API
         /// Generate a random string containing letters A-Z (upper and lower case) and numbers 0-9.
         /// </summary>
         /// <param name="length">The length, in number of characters, of the random string to be returned.</param>
-        /// <returns></returns>
+        /// <returns>A string of random characters.</returns>
         public static string GenerateRandomString(int length)
         {
             const string randStringChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -32,12 +32,12 @@ namespace HomepageDev.API
         /// </summary>
         /// <param name="minValue">Lower bound</param>
         /// <param name="maxValue">Upper bound</param>
-        /// <returns></returns>
+        /// <returns>A random integer</returns>
         public static int GenerateRandomInteger(int minValue, int maxValue)
         {
             if (minValue > maxValue)
             {
-                throw new ArgumentOutOfRangeException($"Value of parameter {nameof(minValue)} ({minValue}) cannot be greater than value of parameter {nameof(maxValue)} ({maxValue}).");
+                throw new ArgumentOutOfRangeException(nameof(minValue), $"Value of parameter {nameof(minValue)} ({minValue}) cannot be greater than value of parameter {nameof(maxValue)} ({maxValue}).");
             }
 
             // use maxValue + 1 becaue Rand.Next() range of returned value includes minValue but not maxValue
