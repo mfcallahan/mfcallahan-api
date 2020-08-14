@@ -6,13 +6,15 @@ This repo contains a sample REST API created with .NET Core 3.1 and deployed to 
 
 ### API Endpoints:
 
-- /api/Geocode/SingleAddress [GET]
-- /api/Geocode/BatchAddress [POST]
 - /api/Utils/Hello [GET]
 - /api/Utils/Hello [POST]
+- /api/Utils/ThrowException [GET]
+- /api/Utils/ThrowException [POST]
 - /api/Utils/RandomString [GET]
 - /api/Utils/RandomInt [GET]
-
+- /api/Utils/DelayedResponse [GET]
+- /api/Geocode/SingleAddress [GET]
+- /api/Geocode/BatchAddress [POST]
 
 Test the API with the [interactive documentation](https://mfcallahan-dev.com).
 
