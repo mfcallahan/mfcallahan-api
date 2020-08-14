@@ -1,8 +1,8 @@
 # Matt Callahan's API
 
-## [mfcallahan-dev.com](https://mfcallahan-dev.com)
+## [mfcallahan-dev.com](http://mfcallahan-dev.com)
 
-This repo contains a sample REST API created with .NET Core 3.1 and deployed to Azure as an App Service. API Documentaion was created with [Swagger/Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore), and can be viewed [here](https://mfcallahan-dev.com). This project is intended to demonstrate the patterns and best practices I like to leverage in the software I develop, including dependecy injection, SOLID principles, unit testing, and clean code organization. View the source code here, and feel free to use any or all of it to help build your own ASP.NET Core Web API application.
+This repo contains a sample REST API created with .NET Core 3.1 and deployed to Azure as an App Service. API Documentaion was created with [Swagger/Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore), and can be viewed [here](https://mfcallahan-homepage-dev.azurewebsites.net/index.html). This project is intended to demonstrate the patterns and best practices I like to leverage in the software I develop, including dependecy injection, SOLID principles, unit testing, and clean code organization. View the source code here, and feel free to use any or all of it to help build your own ASP.NET Core Web API application.
 
 ### API Endpoints:
 
@@ -16,6 +16,6 @@ This repo contains a sample REST API created with .NET Core 3.1 and deployed to 
 - /api/Geocode/SingleAddress [GET]
 - /api/Geocode/BatchAddress [POST]
 
-Test the API with the [interactive documentation](https://mfcallahan-dev.com).
+Test the API with the [interactive documentation](https://mfcallahan-homepage-dev.azurewebsites.net/index.html).
 
 Contact: matthew.callahan@outlook.com
