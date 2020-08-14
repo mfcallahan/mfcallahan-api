@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ApiResponses\" />
     <Folder Include="Bing\" />
     <Folder Include="Options\" />
   </ItemGroup>
