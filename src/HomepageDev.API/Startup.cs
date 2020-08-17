@@ -28,32 +28,7 @@ namespace HomepageDev
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // Configure Swagger documentation page
-            services.AddSwaggerGenNewtonsoftSupport();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc(ApiVersion, new OpenApiInfo
-                {
-                    Version = ApiVersion,
-                    Title = "mfcallahan-dev API",
-                    Description = "A demo API built with ASP.NET Core",
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Matthew Callahan",
-                        Email = "matthew.callahan@outlook.com",
-                        Url = new Uri("https://mfcallahan.com"),
-                    },
-                    License = new OpenApiLicense
-                    {
-                        Name = "MIT License",
-                        Url = new Uri("https://github.com/mfcallahan/mfcallahan-dev/blob/master/LICENSE"),
-                    }
-                });
-
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
-            });
+            ConfigureSwagger(services);
 
             services.AddControllers();
 
@@ -63,7 +38,9 @@ namespace HomepageDev
             // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1
             services.Configure<AppOptions>(options => Configuration.GetSection("AppSettings:AppOptions").Bind(options));
 
-            // Also use .NET Core Secret Manager to retreive sensitive information that is not stored in a config file, such as API keys:
+            // In Development environment, use .NET Core Secret Manager to retreive sensitive information that is not
+            // stored in a config file, such as API keys. In Production environment, this is stored in the App Service
+            // application settings as environment variables.
             // https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-3.1
             services.Configure<BingOptions>(options => {
                 Configuration.GetSection("AppSettings:GeocodeOptions:Bing").Bind(options);
@@ -96,6 +73,36 @@ namespace HomepageDev
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints => endpoints.MapControllers());
+        }
+
+        // Configure auto-generated Swagger API documentation page
+        private void ConfigureSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGenNewtonsoftSupport();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc(ApiVersion, new OpenApiInfo
+                {
+                    Version = ApiVersion,
+                    Title = "mfcallahan-dev API",
+                    Description = "A demo API built with ASP.NET Core",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Matthew Callahan",
+                        Email = "matthew.callahan@outlook.com",
+                        Url = new Uri("https://mfcallahan.com"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "MIT License",
+                        Url = new Uri("https://github.com/mfcallahan/mfcallahan-dev/blob/master/LICENSE"),
+                    }
+                });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
         }
     }
 }
