@@ -36,7 +36,7 @@ namespace HomepageDev.API
         /// <param name="stateProvince">Input state or province</param>
         /// <param name="postalCode">Input postal code</param>
         /// <param name="country">Input country</param>
-        /// <returns>List&lt;SingleAddressResponse&gt;</returns>
+        /// <returns>IList&lt;SingleAddressResponse&gt;</returns>
         public async Task<IList<SingleAddressGeocodeResponse>> GeocodeAddressAsync(
             string address = null,
             string city = null,
@@ -83,7 +83,7 @@ namespace HomepageDev.API
                         OutputAddress = resoure.Address.FormattedAddress,
                         Confidence = resoure.Confidence,
                         MatchType = resoure.Point.Type,
-                        //Coordinates are returned as an array: latitude at index 0, longitue at index 1
+                        //Coordinates are returned by Bing as an array: latitude at index 0, longitue at index 1
                         Latitude = resoure.Point.Coordinates[0],
                         Longitude = resoure.Point.Coordinates[1]
                     }
