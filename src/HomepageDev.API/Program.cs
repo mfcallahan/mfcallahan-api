@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using System.Diagnostics.CodeAnalysis;
 
-namespace HomepageDev
+namespace HomepageDev.API
 {
     [ExcludeFromCodeCoverage]
     public class Program

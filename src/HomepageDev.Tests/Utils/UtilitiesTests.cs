@@ -1,9 +1,9 @@
-﻿using HomepageDev.API.Utils;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
 using System.Diagnostics.CodeAnalysis;
+using HomepageDev.API.Utils;
 
-namespace HomepageDev.Tests
+namespace HomepageDev.Tests.Utils
 {
     [TestFixture]
     [ExcludeFromCodeCoverage]
@@ -49,11 +49,11 @@ namespace HomepageDev.Tests
         public void GenerateRandomInteger_Should_Throw_ArgumentOutOfRangeException_When_MinValue_Is_Greater_Than_MaxValue(int minValue, int maxValue)
         {
             // Arrange
-            object testDelegate() => Utilities.GenerateRandomInteger(minValue, maxValue);
+            object TestDelegate() => Utilities.GenerateRandomInteger(minValue, maxValue);
 
             // Act
             // Assert
-            Assert.That(testDelegate, Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(TestDelegate, Throws.TypeOf<ArgumentOutOfRangeException>());
         }
 
         [Test]

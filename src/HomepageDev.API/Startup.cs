@@ -1,25 +1,24 @@
-using HomepageDev.API;
-using HomepageDev.API.Interfaces;
-using HomepageDev.Models.Options;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection;
+using HomepageDev.API.Bing;
+using HomepageDev.API.Interfaces;
+using HomepageDev.Models.Options;
 
-namespace HomepageDev
+namespace HomepageDev.API
 {
     [ExcludeFromCodeCoverage]
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        private readonly string ApiVersion = "v1";
+        private const string ApiVersion = "v1";
 
         public Startup(IConfiguration configuration)
         {
@@ -38,7 +37,7 @@ namespace HomepageDev
             // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1
             services.Configure<AppOptions>(options => Configuration.GetSection("AppSettings:AppOptions").Bind(options));
 
-            // In Development environment, use .NET Core Secret Manager to retreive sensitive information that is not
+            // In Development environment, use .NET Core Secret Manager to retrieve sensitive information that is not
             // stored in a config file, such as API keys. In Production environment, this is stored in the App Service
             // application settings as environment variables.
             // https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-3.1

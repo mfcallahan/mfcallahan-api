@@ -1,7 +1,7 @@
-﻿using HomepageDev.API;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections.Specialized;
+using HomepageDev.API;
 
 namespace HomepageDev.Tests
 {

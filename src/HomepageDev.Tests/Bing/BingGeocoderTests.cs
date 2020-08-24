@@ -1,8 +1,4 @@
-﻿using HomepageDev.API;
-using HomepageDev.API.Interfaces;
-using HomepageDev.Models.ApiResponses;
-using HomepageDev.Models.Options;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -10,6 +6,10 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 using System.Threading.Tasks;
+using HomepageDev.API.Bing;
+using HomepageDev.API.Interfaces;
+using HomepageDev.Models.Options;
+using HomepageDev.Models.ApiResponses;
 
 namespace HomepageDev.Tests.Bing
 {

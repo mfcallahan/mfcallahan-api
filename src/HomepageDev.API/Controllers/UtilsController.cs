@@ -1,11 +1,11 @@
-﻿using HomepageDev.API.Utils;
-using HomepageDev.Models.ApiResponses;
-using HomepageDev.Models.Options;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using HomepageDev.API.Utils;
+using HomepageDev.Models.ApiResponses;
+using HomepageDev.Models.Options;
 
 namespace HomepageDev.API.Controllers
 {
@@ -96,10 +96,10 @@ namespace HomepageDev.API.Controllers
         }
 
         /// <summary>
-        /// Simulate a long-running API request by waiting a sepcified number of seconds before returning a response.
+        /// Simulate a long-running API request by waiting a specified number of seconds before returning a response.
         /// </summary>
         /// <remarks>
-        /// Returns a string containing a messgae indicating how long the server waited.
+        /// Returns a string containing a message indicating how long the server waited.
         /// </remarks>
         /// <param name="seconds">Wait time, in seconds.</param>
         /// <response code="200">The server waited the specified number of seconds before returning a response.</response>
@@ -119,7 +119,7 @@ namespace HomepageDev.API.Controllers
 
             s.Stop();
 
-            return Ok($"Hello, the server at {Request.Host} waited {(decimal)s.ElapsedMilliseconds / (decimal)1000} seconds beore responding.");
+            return Ok($"Hello, the server at {Request.Host} waited {(decimal)s.ElapsedMilliseconds / (decimal)1000} seconds before responding.");
         }
     }
 }

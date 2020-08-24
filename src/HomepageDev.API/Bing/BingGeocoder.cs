@@ -1,8 +1,4 @@
-﻿using HomepageDev.API.Interfaces;
-using HomepageDev.Models.ApiResponses;
-using HomepageDev.Models.Options;
-using HomepageDev.Models.Bing;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,11 +6,15 @@ using System.Collections.Specialized;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
+using HomepageDev.API.Interfaces;
+using HomepageDev.Models.Options;
+using HomepageDev.Models.ApiResponses;
+using HomepageDev.Models.Bing;
 
-namespace HomepageDev.API
+namespace HomepageDev.API.Bing
 {
     /// <summary>
-    /// Encapsulates address geocoding services avaialble from in Bing Locations API:
+    /// Encapsulates address geocoding services available from in Bing Locations API:
     /// https://docs.microsoft.com/en-us/bingmaps/rest-services/locations/
     /// </summary>
     public class BingGeocoder : IBingGeocoder
