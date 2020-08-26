@@ -5,7 +5,7 @@ using System.Threading;
 namespace HomepageDev.API.Utils
 {
     /// <summary>
-    /// Utilitiy class to demonstrate simple methods that can be exposed via the UtilsController API endpoints.
+    /// Utility class to demonstrate simple methods that can be exposed via the UtilsController API endpoints.
     /// </summary>
     public static class Utilities
     {
@@ -40,7 +40,7 @@ namespace HomepageDev.API.Utils
                 throw new ArgumentOutOfRangeException(nameof(minValue), $"Value of parameter {nameof(minValue)} ({minValue}) cannot be greater than value of parameter {nameof(maxValue)} ({maxValue}).");
             }
 
-            // use maxValue + 1 becaue Rand.Next() range of returned value includes minValue but not maxValue
+            // use maxValue + 1 because Rand.Next() range of returned value includes minValue but not maxValue
             return Rand.Next(minValue, maxValue + 1);
         }
 

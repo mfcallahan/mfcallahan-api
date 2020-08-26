@@ -1,6 +1,6 @@
-﻿using HomepageDev.Models.ApiResponses;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using HomepageDev.Models.ApiResponses;
 
 namespace HomepageDev.API.Interfaces
 {

@@ -1,7 +1,7 @@
-﻿using HomepageDev.API.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using HomepageDev.API.Interfaces;
 
 namespace HomepageDev.API.Controllers
 {

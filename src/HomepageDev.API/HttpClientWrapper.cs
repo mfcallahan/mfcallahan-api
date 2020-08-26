@@ -1,9 +1,9 @@
-﻿using HomepageDev.API.Interfaces;
-using System;
+﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using HomepageDev.API.Interfaces;
 
 namespace HomepageDev.API
 {

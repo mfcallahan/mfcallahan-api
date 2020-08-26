@@ -1,18 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using HomepageDev.Models.ApiResponses;
+﻿using HomepageDev.Models.ApiResponses;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Diagnostics;
 
 namespace HomepageDev.API.Controllers
 {
     /// <summary>
-    /// Custom Controller error handlings
+    /// Custom Controller error handling
     /// </summary>
     [ApiController]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class ErrorController : ControllerBase
     {
         /// <summary>
-        /// Return a custom error response which includes user-freindly information, but excludes the full stack trace.
+        /// Return a custom error response which includes user-friendly information, but excludes the full stack trace.
         /// </summary>
         /// <returns>ErrorResponse</returns>
         [Route("/error")]
