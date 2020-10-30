@@ -17,7 +17,7 @@ namespace HomepageDev.API
     [ExcludeFromCodeCoverage]
     public class Startup
     {
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
         private const string ApiVersion = "v1";
 
         public Startup(IConfiguration configuration)
@@ -75,7 +75,7 @@ namespace HomepageDev.API
         }
 
         // Configure auto-generated Swagger API documentation page
-        private void ConfigureSwagger(IServiceCollection services)
+        private static void ConfigureSwagger(IServiceCollection services)
         {
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddSwaggerGen(c =>
