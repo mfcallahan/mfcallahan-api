@@ -31,7 +31,7 @@ namespace HomepageDev.API.Controllers
         /// Verify server is responding.
         /// </summary>
         /// <remarks>
-        /// Returns an object indicating the current app configuration and a messgae with server name.
+        /// Returns an object indicating the current app configuration and a message with server name.
         /// </remarks>
         /// <response code="200">The server is responding.</response>
         [HttpGet]
@@ -109,7 +109,7 @@ namespace HomepageDev.API.Controllers
         {
             if (seconds < 0 || seconds > DelayedResponseMaxWaitTimeSeconds)
             {
-                return BadRequest($"Value of parameter {nameof(seconds)} ({seconds}) must be greater than or equal 0 and less than or equal to {DelayedResponseMaxWaitTimeSeconds}.");
+                return BadRequest($"Value of parameter {nameof(seconds)} ({seconds}) must be greater than or equal to 0 and less than or equal to {DelayedResponseMaxWaitTimeSeconds}.");
             }
 
             var s = new Stopwatch();
