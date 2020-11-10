@@ -54,7 +54,7 @@ namespace HomepageDev.API.Controllers
         [Route("ThrowException")]
         public void ThrowException()
         {
-            throw new InvalidOperationException("This Exception was purposely thrown.");
+            throw new Exception("This Exception was purposely thrown.");
         }
 
         /// <summary>
