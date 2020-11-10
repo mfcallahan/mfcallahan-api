@@ -27,7 +27,7 @@ namespace HomepageDev.API
         /// <summary>
         /// A wrapper method for HttpClient.GetAsync(); executes HTTP GET request.
         /// </summary>
-        /// <param name="uri">The full uniform resoure identifier (URI) of the API endpoint including a query string</param>
+        /// <param name="uri">The full uniform resource identifier (URI) of the API endpoint including a query string</param>
         /// <returns>HttpResponseMessage</returns>
         public async Task<HttpResponseMessage> GetAsync(Uri uri)
         {
