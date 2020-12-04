@@ -43,6 +43,22 @@ namespace HomepageDev.API.Utils
             // use maxValue + 1 because Rand.Next() range of returned value includes minValue but not maxValue
             return Rand.Next(minValue, maxValue + 1);
         }
+        
+        /// <summary>
+        /// Generate a random decimal with a value between the specified inclusive lower and upper bounds.
+        /// </summary>
+        /// <param name="minValue">Lower bound</param>
+        /// <param name="maxValue">Upper bound</param>
+        /// <returns>A random integer</returns>
+        public static double GenerateRandomDecimal(double minValue, double maxValue)
+        {
+            if (minValue > maxValue)
+            {
+                throw new ArgumentOutOfRangeException(nameof(minValue), $"Value of parameter {nameof(minValue)} ({minValue}) cannot be greater than value of parameter {nameof(maxValue)} ({maxValue}).");
+            }
+            
+            return Math.Round(Rand.NextDouble() * Math.Abs(minValue - maxValue) + minValue, 4);
+        }
 
         /// <summary>
         /// Wait a specified number of seconds before returning from the method.
