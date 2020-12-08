@@ -28,7 +28,8 @@ namespace HomepageDev.API
         public void ConfigureServices(IServiceCollection services)
         {
             ConfigureSwagger(services);
-
+            
+            services.AddCors();
             services.AddControllers();
 
             // Configure all dependencies to be injected
@@ -70,7 +71,10 @@ namespace HomepageDev.API
 
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseAuthorization();
+            // app.UseAuthorization();
+            app.UseCors(
+                options => options.WithOrigins("https://mfcallahan.github.io").AllowAnyMethod()
+            );
             app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
 
