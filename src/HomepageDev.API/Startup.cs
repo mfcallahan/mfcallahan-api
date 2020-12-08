@@ -65,7 +65,7 @@ namespace HomepageDev.API
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint($"/swagger/{ApiVersion}/swagger.json", "mfcallahan-dev API");
+                c.SwaggerEndpoint($"/swagger/{ApiVersion}/swagger.json", "mfcallahan-API");
                 c.RoutePrefix = string.Empty;
             });
 
