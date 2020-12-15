@@ -12,6 +12,7 @@ namespace HomepageDev.API.Controllers
     [ExcludeFromCodeCoverage]
     [ApiController]
     [Route("api/[controller]")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class MockDataController : ControllerBase
     {
         private const int MaxRandomPoints = 100;
