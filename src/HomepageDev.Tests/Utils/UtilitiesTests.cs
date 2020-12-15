@@ -67,5 +67,44 @@ namespace HomepageDev.Tests.Utils
             Assert.That(randomInt == minValue);
             Assert.That(randomInt == maxValue);
         }
+        
+        [Test]
+        [TestCase(45, 125)]
+        [TestCase(-25, 15)]
+        [TestCase(-45, -5)]
+        public void GenerateRandomDecimal_Should_Return_Random_Double_Between_Minimum_And_Maximum_Inclusive(int minValue, int maxValue)
+        {
+            // Act
+            double randomInt = Utilities.GenerateRandomDecimal(minValue, maxValue);
+
+            // Assert
+            Assert.That(randomInt >= minValue);
+            Assert.That(randomInt <= maxValue);
+        }
+        
+        [Test]
+        [TestCase(100, 20)]
+        [TestCase(-25, -40)]
+        public void GenerateRandomDecimal_Should_Throw_ArgumentOutOfRangeException_When_MinValue_Is_Greater_Than_MaxValue(int minValue, int maxValue)
+        {
+            // Arrange
+            object TestDelegate() => Utilities.GenerateRandomDecimal(minValue, maxValue);
+
+            // Act
+            // Assert
+            Assert.That(TestDelegate, Throws.TypeOf<ArgumentOutOfRangeException>());
+        }
+        
+        [Test]
+        [TestCase(100, 100)]
+        public void GenerateRandomDecimal_MinValue_And_MaxValue_Params_Should_Be_Inclusive(int minValue, int maxValue)
+        {
+            // Act
+            double randomInt = Utilities.GenerateRandomDecimal(minValue, maxValue);
+
+            // Assert
+            Assert.That(randomInt == minValue);
+            Assert.That(randomInt == maxValue);
+        }
     }
 }
