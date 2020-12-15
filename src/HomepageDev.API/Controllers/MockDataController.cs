@@ -45,7 +45,8 @@ namespace HomepageDev.API.Controllers
                 mapLocations.Add(new MapLocation(
                     $"Random location {i + 1}",
                     Utilities.GenerateRandomDecimal(PhxMinLat, PhxMaxLat),
-                    Utilities.GenerateRandomDecimal(PhxMinLon, PhxMaxLon)));
+                    Utilities.GenerateRandomDecimal(PhxMinLon, PhxMaxLon))
+                );
             }
             
             return Ok(mapLocations);
