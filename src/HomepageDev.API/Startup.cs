@@ -87,7 +87,7 @@ namespace HomepageDev.API
                 c.SwaggerDoc(ApiVersion, new OpenApiInfo
                 {
                     Version = ApiVersion,
-                    Title = "mfcallahan-dev API",
+                    Title = "mfcallahan-API",
                     Description = "A demo API built with ASP.NET Core",
                     Contact = new OpenApiContact
                     {
