@@ -18,7 +18,7 @@ namespace HomepageDev.API
     public class Startup
     {
         private IConfiguration Configuration { get; }
-        private const string ApiVersion = "v1";
+        private const string ApiVersion = "v2";
 
         public Startup(IConfiguration configuration)
         {
@@ -35,13 +35,13 @@ namespace HomepageDev.API
             // Configure all dependencies to be injected
 
             // Use the Options Pattern described here to provide strongly typed access to groups of related settings in appsettings.json:
-            // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1
+            // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-5.0
             services.Configure<AppOptions>(options => Configuration.GetSection("AppSettings:AppOptions").Bind(options));
 
-            // In Development environment, use .NET Core Secret Manager to retrieve sensitive information that is not
-            // stored in a config file, such as API keys. In Production environment, this is stored in the App Service
+            // In the Development environment, use .NET Secret Manager to retrieve sensitive information which is not
+            // stored in a config file, such as API keys. In the Production environment, these values are stored in the App Service
             // application settings as environment variables.
-            // https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-3.1
+            // https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-5.0
             services.Configure<BingOptions>(options => {
                 Configuration.GetSection("AppSettings:GeocodeOptions:Bing").Bind(options);
                 options.ApiKey = Configuration["GeocodeOptions:Bing:ApiKey"];
@@ -88,7 +88,7 @@ namespace HomepageDev.API
                 {
                     Version = ApiVersion,
                     Title = "mfcallahan-API",
-                    Description = "A demo API built with ASP.NET Core",
+                    Description = "A demo API built with ASP.NET 5",
                     Contact = new OpenApiContact
                     {
                         Name = "Matthew Callahan",
