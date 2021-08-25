@@ -7,7 +7,7 @@ namespace HomepageDev.API.Utils
     /// <summary>
     /// Utility class to demonstrate simple methods that can be exposed via the UtilsController API endpoints.
     /// </summary>
-    public static class Utilities
+    public static class MiscUtils
     {
         private static readonly Random Rand = new Random();
 

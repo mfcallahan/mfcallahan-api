@@ -66,7 +66,7 @@ namespace HomepageDev.API.Bing
             return TranslateBingLocationResponse(responseObject);
         }
 
-        public async Task GeocodeAddressBacthAsync()
+        public async Task GeocodeAddressBatchAsync()
         {
             throw new NotImplementedException();
         }
@@ -75,17 +75,17 @@ namespace HomepageDev.API.Bing
         {
             var singleAddressResponses = new List<SingleAddressGeocodeResponse>();
 
-            foreach (var resoure in response.ResourceSets[0].Resources)
+            foreach (var resource in response.ResourceSets[0].Resources)
             {
                 singleAddressResponses.Add(
                     new SingleAddressGeocodeResponse()
                     {
-                        OutputAddress = resoure.Address.FormattedAddress,
-                        Confidence = resoure.Confidence,
-                        MatchType = resoure.Point.Type,
-                        //Coordinates are returned by Bing as an array: latitude at index 0, longitue at index 1
-                        Latitude = resoure.Point.Coordinates[0],
-                        Longitude = resoure.Point.Coordinates[1]
+                        OutputAddress = resource.Address.FormattedAddress,
+                        Confidence = resource.Confidence,
+                        MatchType = resource.Point.Type,
+                        //Coordinates are returned by Bing as an array: latitude at index 0, longitude at index 1
+                        Latitude = resource.Point.Coordinates[0],
+                        Longitude = resource.Point.Coordinates[1]
                     }
                 );
             }

@@ -52,7 +52,7 @@ namespace HomepageDev.API.Controllers
         [HttpGet]
         [HttpPost]
         [Route("ThrowException")]
-        public void ThrowException()
+        public static void ThrowException()
         {
             throw new Exception("This Exception was purposely thrown.");
         }
@@ -75,7 +75,7 @@ namespace HomepageDev.API.Controllers
                 return BadRequest($"Value of parameter {nameof(length)} ({length}) must be greater than 0 and less than or equal to {RandomStringMaxLength}.");
             }
 
-            return Ok(Utilities.GenerateRandomString(length));
+            return Ok(MiscUtils.GenerateRandomString(length));
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace HomepageDev.API.Controllers
         [Route("RandomInt")]
         public ObjectResult RandomInt(int minValue, int maxValue)
         {
-            return Ok(Utilities.GenerateRandomInteger(minValue, maxValue));
+            return Ok(MiscUtils.GenerateRandomInteger(minValue, maxValue));
         }
 
         /// <summary>
@@ -115,11 +115,11 @@ namespace HomepageDev.API.Controllers
             var s = new Stopwatch();
             s.Start();
 
-            Utilities.WaitNSeconds(seconds);
+            MiscUtils.WaitNSeconds(seconds);
 
             s.Stop();
 
-            return Ok($"Hello, the server at {Request.Host} waited {(decimal)s.ElapsedMilliseconds / (decimal)1000} seconds before responding.");
+            return Ok($"Hello, the server at {Request.Host} waited {s.ElapsedMilliseconds / (decimal)1000} seconds before responding.");
         }
     }
 }

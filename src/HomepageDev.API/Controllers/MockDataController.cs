@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using HomepageDev.API.Utils;
 using HomepageDev.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,7 +26,7 @@ namespace HomepageDev.API.Controllers
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name=""></param>
+        /// <param name="numPoints">The number of random lat,lon points to be returned</param>
         /// <response code="200"></response>
         /// <response code="400"></response>
         [HttpGet]
@@ -45,8 +44,8 @@ namespace HomepageDev.API.Controllers
             {
                 mapLocations.Add(new MapLocation(
                     $"Random location {i + 1}",
-                    Utilities.GenerateRandomDecimal(PhxMinLat, PhxMaxLat),
-                    Utilities.GenerateRandomDecimal(PhxMinLon, PhxMaxLon))
+                    Utils.MiscUtils.GenerateRandomDecimal(PhxMinLat, PhxMaxLat),
+                    Utils.MiscUtils.GenerateRandomDecimal(PhxMinLon, PhxMaxLon))
                 );
             }
             
