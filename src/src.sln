@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MfcallahanAPI", "MfcallahanAPI\MfcallahanAPI.csproj", "{F8CDDED8-051B-4CBA-BF5F-4AF2CE8EF15C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MfcallahanAPI.Models", "MfcallahanAPI.Models\MfcallahanAPI.Models.csproj", "{B39F1259-4AC1-440F-8685-BC7E96BA3549}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8CDDED8-051B-4CBA-BF5F-4AF2CE8EF15C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8CDDED8-051B-4CBA-BF5F-4AF2CE8EF15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8CDDED8-051B-4CBA-BF5F-4AF2CE8EF15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8CDDED8-051B-4CBA-BF5F-4AF2CE8EF15C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B39F1259-4AC1-440F-8685-BC7E96BA3549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B39F1259-4AC1-440F-8685-BC7E96BA3549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B39F1259-4AC1-440F-8685-BC7E96BA3549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B39F1259-4AC1-440F-8685-BC7E96BA3549}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
